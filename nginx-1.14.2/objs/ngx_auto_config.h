@@ -1,4 +1,4 @@
-#define NGX_CONFIGURE " --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --modules-path=/usr/lib/nginx/modules --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --pid-path=/var/run/nginx.pid --lock-path=/var/run/nginx.lock --http-client-body-temp-path=/var/cache/nginx/client_temp --http-proxy-temp-path=/var/cache/nginx/proxy_temp --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp --http-scgi-temp-path=/var/cache/nginx/scgi_temp --user=nginx --group=nginx"
+#define NGX_CONFIGURE " --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --modules-path=/usr/lib/nginx/modules --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --pid-path=/var/run/nginx.pid --lock-path=/var/run/nginx.lock --http-client-body-temp-path=/var/cache/nginx/client_temp --http-proxy-temp-path=/var/cache/nginx/proxy_temp --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp --http-scgi-temp-path=/var/cache/nginx/scgi_temp --user=nginx --group=nginx --with-http_ssl_module --with-http_dav_module --add-module=/root/src/nginx-dav-ext-module"
 
 #ifndef NGX_COMPILER
 #define NGX_COMPILER  "gcc 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.4) "
@@ -358,6 +358,11 @@
 #endif
 
 
+#ifndef NGX_HTTP_DAV
+#define NGX_HTTP_DAV  1
+#endif
+
+
 #ifndef NGX_CRYPT
 #define NGX_CRYPT  1
 #endif
@@ -365,6 +370,11 @@
 
 #ifndef NGX_HTTP_X_FORWARDED_FOR
 #define NGX_HTTP_X_FORWARDED_FOR  1
+#endif
+
+
+#ifndef NGX_HTTP_SSL
+#define NGX_HTTP_SSL  1
 #endif
 
 
@@ -388,8 +398,23 @@
 #endif
 
 
+#ifndef NGX_OPENSSL
+#define NGX_OPENSSL  1
+#endif
+
+
+#ifndef NGX_SSL
+#define NGX_SSL  1
+#endif
+
+
 #ifndef NGX_ZLIB
 #define NGX_ZLIB  1
+#endif
+
+
+#ifndef NGX_HAVE_EXSLT
+#define NGX_HAVE_EXSLT  1
 #endif
 
 

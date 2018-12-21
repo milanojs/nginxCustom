@@ -9,6 +9,7 @@ ALL_INCS = -I src/core \
 	-I src/event \
 	-I src/event/modules \
 	-I src/os/unix \
+	-I /usr/include/libxml2 \
 	-I objs \
 	-I src/http \
 	-I src/http/modules
@@ -73,6 +74,7 @@ CORE_DEPS = src/core/nginx.h \
 	src/os/unix/ngx_process_cycle.h \
 	src/os/unix/ngx_linux_config.h \
 	src/os/unix/ngx_linux.h \
+	src/event/ngx_event_openssl.h \
 	src/core/ngx_regex.h \
 	objs/ngx_auto_config.h
 
@@ -81,6 +83,7 @@ CORE_INCS = -I src/core \
 	-I src/event \
 	-I src/event/modules \
 	-I src/os/unix \
+	-I /usr/include/libxml2 \
 	-I objs
 
 
@@ -93,11 +96,15 @@ HTTP_DEPS = src/http/ngx_http.h \
 	src/http/ngx_http_script.h \
 	src/http/ngx_http_upstream.h \
 	src/http/ngx_http_upstream_round_robin.h \
-	src/http/modules/ngx_http_ssi_filter_module.h
+	src/http/modules/ngx_http_ssi_filter_module.h \
+	src/http/modules/ngx_http_ssl_module.h
 
 
 HTTP_INCS = -I src/http \
 	-I src/http/modules
+
+
+ADDON_DEPS = $(CORE_DEPS)  $(HTTP_DEPS)
 
 
 build:	binary modules manpage
@@ -170,6 +177,8 @@ objs/nginx:	objs/src/core/nginx.o \
 	objs/src/os/unix/ngx_linux_init.o \
 	objs/src/event/modules/ngx_epoll_module.o \
 	objs/src/os/unix/ngx_linux_sendfile_chain.o \
+	objs/src/event/ngx_event_openssl.o \
+	objs/src/event/ngx_event_openssl_stapling.o \
 	objs/src/core/ngx_regex.o \
 	objs/src/http/ngx_http.o \
 	objs/src/http/ngx_http_core_module.o \
@@ -196,6 +205,7 @@ objs/nginx:	objs/src/core/nginx.o \
 	objs/src/http/ngx_http_copy_filter_module.o \
 	objs/src/http/modules/ngx_http_not_modified_filter_module.o \
 	objs/src/http/modules/ngx_http_static_module.o \
+	objs/src/http/modules/ngx_http_dav_module.o \
 	objs/src/http/modules/ngx_http_autoindex_module.o \
 	objs/src/http/modules/ngx_http_index_module.o \
 	objs/src/http/modules/ngx_http_mirror_module.o \
@@ -209,6 +219,7 @@ objs/nginx:	objs/src/core/nginx.o \
 	objs/src/http/modules/ngx_http_split_clients_module.o \
 	objs/src/http/modules/ngx_http_referer_module.o \
 	objs/src/http/modules/ngx_http_rewrite_module.o \
+	objs/src/http/modules/ngx_http_ssl_module.o \
 	objs/src/http/modules/ngx_http_proxy_module.o \
 	objs/src/http/modules/ngx_http_fastcgi_module.o \
 	objs/src/http/modules/ngx_http_uwsgi_module.o \
@@ -221,6 +232,7 @@ objs/nginx:	objs/src/core/nginx.o \
 	objs/src/http/modules/ngx_http_upstream_least_conn_module.o \
 	objs/src/http/modules/ngx_http_upstream_keepalive_module.o \
 	objs/src/http/modules/ngx_http_upstream_zone_module.o \
+	objs/addon/nginx-dav-ext-module/ngx_http_dav_ext_module.o \
 	objs/ngx_modules.o
 
 	$(LINK) -o objs/nginx \
@@ -290,6 +302,8 @@ objs/nginx:	objs/src/core/nginx.o \
 	objs/src/os/unix/ngx_linux_init.o \
 	objs/src/event/modules/ngx_epoll_module.o \
 	objs/src/os/unix/ngx_linux_sendfile_chain.o \
+	objs/src/event/ngx_event_openssl.o \
+	objs/src/event/ngx_event_openssl_stapling.o \
 	objs/src/core/ngx_regex.o \
 	objs/src/http/ngx_http.o \
 	objs/src/http/ngx_http_core_module.o \
@@ -316,6 +330,7 @@ objs/nginx:	objs/src/core/nginx.o \
 	objs/src/http/ngx_http_copy_filter_module.o \
 	objs/src/http/modules/ngx_http_not_modified_filter_module.o \
 	objs/src/http/modules/ngx_http_static_module.o \
+	objs/src/http/modules/ngx_http_dav_module.o \
 	objs/src/http/modules/ngx_http_autoindex_module.o \
 	objs/src/http/modules/ngx_http_index_module.o \
 	objs/src/http/modules/ngx_http_mirror_module.o \
@@ -329,6 +344,7 @@ objs/nginx:	objs/src/core/nginx.o \
 	objs/src/http/modules/ngx_http_split_clients_module.o \
 	objs/src/http/modules/ngx_http_referer_module.o \
 	objs/src/http/modules/ngx_http_rewrite_module.o \
+	objs/src/http/modules/ngx_http_ssl_module.o \
 	objs/src/http/modules/ngx_http_proxy_module.o \
 	objs/src/http/modules/ngx_http_fastcgi_module.o \
 	objs/src/http/modules/ngx_http_uwsgi_module.o \
@@ -341,8 +357,9 @@ objs/nginx:	objs/src/core/nginx.o \
 	objs/src/http/modules/ngx_http_upstream_least_conn_module.o \
 	objs/src/http/modules/ngx_http_upstream_keepalive_module.o \
 	objs/src/http/modules/ngx_http_upstream_zone_module.o \
+	objs/addon/nginx-dav-ext-module/ngx_http_dav_ext_module.o \
 	objs/ngx_modules.o \
-	-ldl -lpthread -lcrypt -lpcre -lz \
+	-ldl -lpthread -lcrypt -lpcre -lssl -lcrypto -ldl -lpthread -lz -lxml2 -lxslt -lexslt \
 	-Wl,-E
 	
 
@@ -818,6 +835,20 @@ objs/src/os/unix/ngx_linux_sendfile_chain.o:	$(CORE_DEPS) \
 		src/os/unix/ngx_linux_sendfile_chain.c
 
 
+objs/src/event/ngx_event_openssl.o:	$(CORE_DEPS) \
+	src/event/ngx_event_openssl.c
+	$(CC) -c $(CFLAGS) $(CORE_INCS) \
+		-o objs/src/event/ngx_event_openssl.o \
+		src/event/ngx_event_openssl.c
+
+
+objs/src/event/ngx_event_openssl_stapling.o:	$(CORE_DEPS) \
+	src/event/ngx_event_openssl_stapling.c
+	$(CC) -c $(CFLAGS) $(CORE_INCS) \
+		-o objs/src/event/ngx_event_openssl_stapling.o \
+		src/event/ngx_event_openssl_stapling.c
+
+
 objs/src/core/ngx_regex.o:	$(CORE_DEPS) \
 	src/core/ngx_regex.c
 	$(CC) -c $(CFLAGS) $(CORE_INCS) \
@@ -1000,6 +1031,13 @@ objs/src/http/modules/ngx_http_static_module.o:	$(CORE_DEPS) $(HTTP_DEPS) \
 		src/http/modules/ngx_http_static_module.c
 
 
+objs/src/http/modules/ngx_http_dav_module.o:	$(CORE_DEPS) $(HTTP_DEPS) \
+	src/http/modules/ngx_http_dav_module.c
+	$(CC) -c $(CFLAGS) $(CORE_INCS) $(HTTP_INCS) \
+		-o objs/src/http/modules/ngx_http_dav_module.o \
+		src/http/modules/ngx_http_dav_module.c
+
+
 objs/src/http/modules/ngx_http_autoindex_module.o:	$(CORE_DEPS) $(HTTP_DEPS) \
 	src/http/modules/ngx_http_autoindex_module.c
 	$(CC) -c $(CFLAGS) $(CORE_INCS) $(HTTP_INCS) \
@@ -1091,6 +1129,13 @@ objs/src/http/modules/ngx_http_rewrite_module.o:	$(CORE_DEPS) $(HTTP_DEPS) \
 		src/http/modules/ngx_http_rewrite_module.c
 
 
+objs/src/http/modules/ngx_http_ssl_module.o:	$(CORE_DEPS) $(HTTP_DEPS) \
+	src/http/modules/ngx_http_ssl_module.c
+	$(CC) -c $(CFLAGS) $(CORE_INCS) $(HTTP_INCS) \
+		-o objs/src/http/modules/ngx_http_ssl_module.o \
+		src/http/modules/ngx_http_ssl_module.c
+
+
 objs/src/http/modules/ngx_http_proxy_module.o:	$(CORE_DEPS) $(HTTP_DEPS) \
 	src/http/modules/ngx_http_proxy_module.c
 	$(CC) -c $(CFLAGS) $(CORE_INCS) $(HTTP_INCS) \
@@ -1173,6 +1218,13 @@ objs/src/http/modules/ngx_http_upstream_zone_module.o:	$(CORE_DEPS) $(HTTP_DEPS)
 	$(CC) -c $(CFLAGS) $(CORE_INCS) $(HTTP_INCS) \
 		-o objs/src/http/modules/ngx_http_upstream_zone_module.o \
 		src/http/modules/ngx_http_upstream_zone_module.c
+
+
+objs/addon/nginx-dav-ext-module/ngx_http_dav_ext_module.o:	$(ADDON_DEPS) \
+	/root/src/nginx-dav-ext-module/ngx_http_dav_ext_module.c
+	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+		-o objs/addon/nginx-dav-ext-module/ngx_http_dav_ext_module.o \
+		/root/src/nginx-dav-ext-module/ngx_http_dav_ext_module.c
 
 
 manpage:	objs/nginx.8
