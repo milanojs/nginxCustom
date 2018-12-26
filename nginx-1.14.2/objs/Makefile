@@ -695,7 +695,7 @@ objs/nginx:	objs/src/core/nginx.o \
 	objs/addon/vod/write_buffer.o \
 	objs/addon/vod/write_buffer_queue.o \
 	objs/ngx_modules.o \
-	-ldl -lpthread -lcrypt -lz -lcrypto -ldl -lpthread -lswscale -lavfilter -lavutil -lxml2 -lpcre -lssl -lcrypto -ldl -lpthread -lz -lxml2 -lxslt -lexslt -lGeoIP \
+	-ldl -lpthread -lcrypt -lz -lcrypto -ldl -lpthread -lxml2 -lpcre -lssl -lcrypto -ldl -lpthread -lz -lxml2 -lxslt -lexslt -lGeoIP \
 	-Wl,-E
 	
 

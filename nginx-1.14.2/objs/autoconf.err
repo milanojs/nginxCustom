@@ -204,7 +204,7 @@ cc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
 ----------------------------------------
 checking for crypt()
 
-/tmp/ccmDBT3k.o: In function `main':
+/tmp/cc9ISZG1.o: In function `main':
 autotest.c:(.text+0xf): undefined reference to `crypt'
 collect2: error: ld returned 1 exit status
 ----------
@@ -315,7 +315,7 @@ checking for statvfs()
 ----------------------------------------
 checking for dlopen()
 
-/tmp/ccfQqTvh.o: In function `main':
+/tmp/cc1US4Ls.o: In function `main':
 autotest.c:(.text+0xf): undefined reference to `dlopen'
 autotest.c:(.text+0x1e): undefined reference to `dlsym'
 collect2: error: ld returned 1 exit status
@@ -626,7 +626,7 @@ checking for AF_INET6
 ----------------------------------------
 checking for setproctitle()
 
-/tmp/cclmppyQ.o: In function `main':
+/tmp/cc3hWuLp.o: In function `main':
 autotest.c:(.text+0xf): undefined reference to `setproctitle'
 collect2: error: ld returned 1 exit status
 ----------
@@ -659,7 +659,7 @@ checking for pwritev()
 ----------------------------------------
 checking for sys_nerr
 
-/tmp/ccsu4Xd8.o: In function `main':
+/tmp/ccRD0ZRH.o: In function `main':
 autotest.c:(.text+0x6): warning: `sys_nerr' is deprecated; use `strerror' or `strerror_r' instead
 135
 ----------------------------------------
@@ -693,7 +693,7 @@ checking for System V shared memory
 ----------------------------------------
 checking for POSIX semaphores
 
-/tmp/ccxkk5gg.o: In function `main':
+/tmp/ccMvWp10.o: In function `main':
 autotest.c:(.text+0x29): undefined reference to `sem_init'
 autotest.c:(.text+0x41): undefined reference to `sem_destroy'
 collect2: error: ld returned 1 exit status
@@ -796,7 +796,7 @@ checking for clock_gettime()
 ----------------------------------------
 checking for libavcodec
 
-/tmp/ccX75Dzu.o: In function `main':
+/tmp/ccRY8G6O.o: In function `main':
 autotest.c:(.text+0x14): undefined reference to `avcodec_send_packet'
 collect2: error: ld returned 1 exit status
 ----------
@@ -817,10 +817,48 @@ cc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -lavcod
 ----------------------------------------
 checking for libswscale
 
+objs/autotest.c:4:32: fatal error: libswscale/swscale.h: No such file or directory
+ #include <libswscale/swscale.h>
+                                ^
+compilation terminated.
+----------
+
+#include <sys/types.h>
+#include <unistd.h>
+#include <libswscale/swscale.h>
+
+int main(void) {
+    sws_scale(NULL, NULL, NULL, 0, 0, NULL, NULL);
+    return 0;
+}
+
+----------
+cc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -lswscale
+----------
 
 ----------------------------------------
 checking for libavfilter
 
+objs/autotest.c:4:34: fatal error: libavfilter/avfilter.h: No such file or directory
+ #include <libavfilter/avfilter.h>
+                                  ^
+compilation terminated.
+----------
+
+#include <sys/types.h>
+#include <unistd.h>
+#include <libavfilter/avfilter.h>
+                  #include <libavfilter/buffersrc.h>
+                  #include <libavfilter/buffersink.h>
+
+int main(void) {
+    avfilter_register_all();
+    return 0;
+}
+
+----------
+cc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -lavfilter
+----------
 
 ----------------------------------------
 checking for libxml2
