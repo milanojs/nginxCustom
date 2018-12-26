@@ -1,4 +1,9 @@
-#define NGX_CONFIGURE " --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --modules-path=/usr/lib/nginx/modules --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --pid-path=/var/run/nginx.pid --lock-path=/var/run/nginx.lock --http-client-body-temp-path=/var/cache/nginx/client_temp --http-proxy-temp-path=/var/cache/nginx/proxy_temp --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp --http-scgi-temp-path=/var/cache/nginx/scgi_temp --user=nginx --group=nginx --with-http_ssl_module --with-http_dav_module --add-module=/root/src/nginx-dav-ext-module --add-module=/root/src/nginx-rtmp-module --add-module=/root/src/headers-more-nginx-module --add-module=/root/src/nginx-module-vts"
+#define NGX_CONFIGURE " --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --modules-path=/usr/lib/nginx/modules --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --pid-path=/var/run/nginx.pid --lock-path=/var/run/nginx.lock --http-client-body-temp-path=/var/cache/nginx/client_temp --http-proxy-temp-path=/var/cache/nginx/proxy_temp --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp --http-scgi-temp-path=/var/cache/nginx/scgi_temp --with-debug --with-stream_ssl_module --with-http_stub_status_module --with-stream --with-http_geoip_module --with-http_sub_module --with-http_mp4_module --with-http_secure_link_module --user=nginx --group=nginx --with-http_ssl_module --with-http_dav_module --add-module=/root/src/nginx-dav-ext-module --add-module=/root/src/nginx-rtmp-module --add-module=/root/src/headers-more-nginx-module --add-module=/root/src/nginx-module-vts --add-module=/root/src/nginx-vod-module"
+
+#ifndef NGX_DEBUG
+#define NGX_DEBUG  1
+#endif
+
 
 #ifndef NGX_COMPILER
 #define NGX_COMPILER  "gcc 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.4) "
@@ -373,6 +378,11 @@
 #endif
 
 
+#ifndef NGX_HTTP_X_FORWARDED_FOR
+#define NGX_HTTP_X_FORWARDED_FOR  1
+#endif
+
+
 #ifndef NGX_HTTP_SSL
 #define NGX_HTTP_SSL  1
 #endif
@@ -390,6 +400,56 @@
 
 #ifndef NGX_STAT_STUB
 #define NGX_STAT_STUB  1
+#endif
+
+
+#ifndef NGX_STREAM_SSL
+#define NGX_STREAM_SSL  1
+#endif
+
+
+#ifndef NGX_STREAM_UPSTREAM_ZONE
+#define NGX_STREAM_UPSTREAM_ZONE  1
+#endif
+
+
+#ifndef NGX_STAT_STUB
+#define NGX_STAT_STUB  1
+#endif
+
+
+#ifndef NGX_HAVE_ZLIB
+#define NGX_HAVE_ZLIB  1
+#endif
+
+
+#ifndef NGX_HAVE_OPENSSL_EVP
+#define NGX_HAVE_OPENSSL_EVP  1
+#endif
+
+
+#ifndef NGX_HAVE_ICONV
+#define NGX_HAVE_ICONV  1
+#endif
+
+
+#ifndef NGX_HAVE_CLOCK_GETTIME
+#define NGX_HAVE_CLOCK_GETTIME  1
+#endif
+
+
+#ifndef NGX_HAVE_LIB_SW_SCALE
+#define NGX_HAVE_LIB_SW_SCALE  1
+#endif
+
+
+#ifndef NGX_HAVE_LIB_AV_FILTER
+#define NGX_HAVE_LIB_AV_FILTER  1
+#endif
+
+
+#ifndef NGX_HAVE_LIBXML2
+#define NGX_HAVE_LIBXML2  1
 #endif
 
 
@@ -420,6 +480,11 @@
 
 #ifndef NGX_HAVE_EXSLT
 #define NGX_HAVE_EXSLT  1
+#endif
+
+
+#ifndef NGX_HAVE_GEOIP_V6
+#define NGX_HAVE_GEOIP_V6  1
 #endif
 
 
