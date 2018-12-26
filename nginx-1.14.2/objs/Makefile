@@ -106,7 +106,7 @@ HTTP_INCS = -I src/http \
 	-I src/http/modules
 
 
-ADDON_DEPS = $(CORE_DEPS)                                                                   /root/src/nginx-rtmp-module/ngx_rtmp_amf.h                               /root/src/nginx-rtmp-module/ngx_rtmp_bandwidth.h                         /root/src/nginx-rtmp-module/ngx_rtmp_cmd_module.h                        /root/src/nginx-rtmp-module/ngx_rtmp_codec_module.h                      /root/src/nginx-rtmp-module/ngx_rtmp_eval.h                              /root/src/nginx-rtmp-module/ngx_rtmp.h                                   /root/src/nginx-rtmp-module/ngx_rtmp_version.h                           /root/src/nginx-rtmp-module/ngx_rtmp_live_module.h                       /root/src/nginx-rtmp-module/ngx_rtmp_netcall_module.h                    /root/src/nginx-rtmp-module/ngx_rtmp_play_module.h                       /root/src/nginx-rtmp-module/ngx_rtmp_record_module.h                     /root/src/nginx-rtmp-module/ngx_rtmp_relay_module.h                      /root/src/nginx-rtmp-module/ngx_rtmp_streams.h                           /root/src/nginx-rtmp-module/ngx_rtmp_bitop.h                             /root/src/nginx-rtmp-module/ngx_rtmp_proxy_protocol.h                    /root/src/nginx-rtmp-module/hls/ngx_rtmp_mpegts.h                        /root/src/nginx-rtmp-module/dash/ngx_rtmp_mp4.h                           $(HTTP_DEPS)
+ADDON_DEPS = $(CORE_DEPS)                                                                   /root/src/nginx-rtmp-module/ngx_rtmp_amf.h                               /root/src/nginx-rtmp-module/ngx_rtmp_bandwidth.h                         /root/src/nginx-rtmp-module/ngx_rtmp_cmd_module.h                        /root/src/nginx-rtmp-module/ngx_rtmp_codec_module.h                      /root/src/nginx-rtmp-module/ngx_rtmp_eval.h                              /root/src/nginx-rtmp-module/ngx_rtmp.h                                   /root/src/nginx-rtmp-module/ngx_rtmp_version.h                           /root/src/nginx-rtmp-module/ngx_rtmp_live_module.h                       /root/src/nginx-rtmp-module/ngx_rtmp_netcall_module.h                    /root/src/nginx-rtmp-module/ngx_rtmp_play_module.h                       /root/src/nginx-rtmp-module/ngx_rtmp_record_module.h                     /root/src/nginx-rtmp-module/ngx_rtmp_relay_module.h                      /root/src/nginx-rtmp-module/ngx_rtmp_streams.h                           /root/src/nginx-rtmp-module/ngx_rtmp_bitop.h                             /root/src/nginx-rtmp-module/ngx_rtmp_proxy_protocol.h                    /root/src/nginx-rtmp-module/hls/ngx_rtmp_mpegts.h                        /root/src/nginx-rtmp-module/dash/ngx_rtmp_mp4.h                                                                                                    /root/src/headers-more-nginx-module/src/ddebug.h                                                 /root/src/headers-more-nginx-module/src/ngx_http_headers_more_filter_module.h                    /root/src/headers-more-nginx-module/src/ngx_http_headers_more_headers_in.h                       /root/src/headers-more-nginx-module/src/ngx_http_headers_more_headers_out.h                      /root/src/headers-more-nginx-module/src/ngx_http_headers_more_headers_in.h                       /root/src/headers-more-nginx-module/src/ngx_http_headers_more_util.h                              $(HTTP_DEPS)
 
 
 build:	binary modules manpage
@@ -269,6 +269,10 @@ objs/nginx:	objs/src/core/nginx.o \
 	objs/addon/dash/ngx_rtmp_mp4.o \
 	objs/addon/nginx-rtmp-module/ngx_rtmp_stat_module.o \
 	objs/addon/nginx-rtmp-module/ngx_rtmp_control_module.o \
+	objs/addon/src/ngx_http_headers_more_filter_module.o \
+	objs/addon/src/ngx_http_headers_more_headers_out.o \
+	objs/addon/src/ngx_http_headers_more_headers_in.o \
+	objs/addon/src/ngx_http_headers_more_util.o \
 	objs/ngx_modules.o
 
 	$(LINK) -o objs/nginx \
@@ -428,6 +432,10 @@ objs/nginx:	objs/src/core/nginx.o \
 	objs/addon/dash/ngx_rtmp_mp4.o \
 	objs/addon/nginx-rtmp-module/ngx_rtmp_stat_module.o \
 	objs/addon/nginx-rtmp-module/ngx_rtmp_control_module.o \
+	objs/addon/src/ngx_http_headers_more_filter_module.o \
+	objs/addon/src/ngx_http_headers_more_headers_out.o \
+	objs/addon/src/ngx_http_headers_more_headers_in.o \
+	objs/addon/src/ngx_http_headers_more_util.o \
 	objs/ngx_modules.o \
 	-ldl -lpthread -lcrypt -lpcre -lssl -lcrypto -ldl -lpthread -lz -lxml2 -lxslt -lexslt \
 	-Wl,-E
@@ -1533,6 +1541,34 @@ objs/addon/nginx-rtmp-module/ngx_rtmp_control_module.o:	$(ADDON_DEPS) \
 	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
 		-o objs/addon/nginx-rtmp-module/ngx_rtmp_control_module.o \
 		/root/src/nginx-rtmp-module/ngx_rtmp_control_module.c
+
+
+objs/addon/src/ngx_http_headers_more_filter_module.o:	$(ADDON_DEPS) \
+	/root/src/headers-more-nginx-module/src/ngx_http_headers_more_filter_module.c
+	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+		-o objs/addon/src/ngx_http_headers_more_filter_module.o \
+		/root/src/headers-more-nginx-module/src/ngx_http_headers_more_filter_module.c
+
+
+objs/addon/src/ngx_http_headers_more_headers_out.o:	$(ADDON_DEPS) \
+	/root/src/headers-more-nginx-module/src/ngx_http_headers_more_headers_out.c
+	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+		-o objs/addon/src/ngx_http_headers_more_headers_out.o \
+		/root/src/headers-more-nginx-module/src/ngx_http_headers_more_headers_out.c
+
+
+objs/addon/src/ngx_http_headers_more_headers_in.o:	$(ADDON_DEPS) \
+	/root/src/headers-more-nginx-module/src/ngx_http_headers_more_headers_in.c
+	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+		-o objs/addon/src/ngx_http_headers_more_headers_in.o \
+		/root/src/headers-more-nginx-module/src/ngx_http_headers_more_headers_in.c
+
+
+objs/addon/src/ngx_http_headers_more_util.o:	$(ADDON_DEPS) \
+	/root/src/headers-more-nginx-module/src/ngx_http_headers_more_util.c
+	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+		-o objs/addon/src/ngx_http_headers_more_util.o \
+		/root/src/headers-more-nginx-module/src/ngx_http_headers_more_util.c
 
 
 manpage:	objs/nginx.8
