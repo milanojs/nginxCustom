@@ -1,4 +1,4 @@
-#define NGX_CONFIGURE " --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --modules-path=/usr/lib/nginx/modules --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --pid-path=/var/run/nginx.pid --lock-path=/var/run/nginx.lock --http-client-body-temp-path=/var/cache/nginx/client_temp --http-proxy-temp-path=/var/cache/nginx/proxy_temp --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp --http-scgi-temp-path=/var/cache/nginx/scgi_temp --user=nginx --group=nginx --with-http_ssl_module --with-http_dav_module --add-module=/root/src/nginx-dav-ext-module --add-module=/root/src/nginx-rtmp-module --add-module=/root/src/headers-more-nginx-module"
+#define NGX_CONFIGURE " --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --modules-path=/usr/lib/nginx/modules --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --pid-path=/var/run/nginx.pid --lock-path=/var/run/nginx.lock --http-client-body-temp-path=/var/cache/nginx/client_temp --http-proxy-temp-path=/var/cache/nginx/proxy_temp --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp --http-scgi-temp-path=/var/cache/nginx/scgi_temp --user=nginx --group=nginx --with-http_ssl_module --with-http_dav_module --add-module=/root/src/nginx-dav-ext-module --add-module=/root/src/nginx-rtmp-module --add-module=/root/src/headers-more-nginx-module --add-module=/root/src/nginx-module-vts"
 
 #ifndef NGX_COMPILER
 #define NGX_COMPILER  "gcc 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.4) "
@@ -385,6 +385,11 @@
 
 #ifndef NGX_HTTP_UPSTREAM_ZONE
 #define NGX_HTTP_UPSTREAM_ZONE  1
+#endif
+
+
+#ifndef NGX_STAT_STUB
+#define NGX_STAT_STUB  1
 #endif
 
 

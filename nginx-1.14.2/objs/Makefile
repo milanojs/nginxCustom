@@ -106,7 +106,7 @@ HTTP_INCS = -I src/http \
 	-I src/http/modules
 
 
-ADDON_DEPS = $(CORE_DEPS)                                                                   /root/src/nginx-rtmp-module/ngx_rtmp_amf.h                               /root/src/nginx-rtmp-module/ngx_rtmp_bandwidth.h                         /root/src/nginx-rtmp-module/ngx_rtmp_cmd_module.h                        /root/src/nginx-rtmp-module/ngx_rtmp_codec_module.h                      /root/src/nginx-rtmp-module/ngx_rtmp_eval.h                              /root/src/nginx-rtmp-module/ngx_rtmp.h                                   /root/src/nginx-rtmp-module/ngx_rtmp_version.h                           /root/src/nginx-rtmp-module/ngx_rtmp_live_module.h                       /root/src/nginx-rtmp-module/ngx_rtmp_netcall_module.h                    /root/src/nginx-rtmp-module/ngx_rtmp_play_module.h                       /root/src/nginx-rtmp-module/ngx_rtmp_record_module.h                     /root/src/nginx-rtmp-module/ngx_rtmp_relay_module.h                      /root/src/nginx-rtmp-module/ngx_rtmp_streams.h                           /root/src/nginx-rtmp-module/ngx_rtmp_bitop.h                             /root/src/nginx-rtmp-module/ngx_rtmp_proxy_protocol.h                    /root/src/nginx-rtmp-module/hls/ngx_rtmp_mpegts.h                        /root/src/nginx-rtmp-module/dash/ngx_rtmp_mp4.h                                                                                                    /root/src/headers-more-nginx-module/src/ddebug.h                                                 /root/src/headers-more-nginx-module/src/ngx_http_headers_more_filter_module.h                    /root/src/headers-more-nginx-module/src/ngx_http_headers_more_headers_in.h                       /root/src/headers-more-nginx-module/src/ngx_http_headers_more_headers_out.h                      /root/src/headers-more-nginx-module/src/ngx_http_headers_more_headers_in.h                       /root/src/headers-more-nginx-module/src/ngx_http_headers_more_util.h                              $(HTTP_DEPS)
+ADDON_DEPS = $(CORE_DEPS)                                                                   /root/src/nginx-rtmp-module/ngx_rtmp_amf.h                               /root/src/nginx-rtmp-module/ngx_rtmp_bandwidth.h                         /root/src/nginx-rtmp-module/ngx_rtmp_cmd_module.h                        /root/src/nginx-rtmp-module/ngx_rtmp_codec_module.h                      /root/src/nginx-rtmp-module/ngx_rtmp_eval.h                              /root/src/nginx-rtmp-module/ngx_rtmp.h                                   /root/src/nginx-rtmp-module/ngx_rtmp_version.h                           /root/src/nginx-rtmp-module/ngx_rtmp_live_module.h                       /root/src/nginx-rtmp-module/ngx_rtmp_netcall_module.h                    /root/src/nginx-rtmp-module/ngx_rtmp_play_module.h                       /root/src/nginx-rtmp-module/ngx_rtmp_record_module.h                     /root/src/nginx-rtmp-module/ngx_rtmp_relay_module.h                      /root/src/nginx-rtmp-module/ngx_rtmp_streams.h                           /root/src/nginx-rtmp-module/ngx_rtmp_bitop.h                             /root/src/nginx-rtmp-module/ngx_rtmp_proxy_protocol.h                    /root/src/nginx-rtmp-module/hls/ngx_rtmp_mpegts.h                        /root/src/nginx-rtmp-module/dash/ngx_rtmp_mp4.h                                                                                                    /root/src/headers-more-nginx-module/src/ddebug.h                                                 /root/src/headers-more-nginx-module/src/ngx_http_headers_more_filter_module.h                    /root/src/headers-more-nginx-module/src/ngx_http_headers_more_headers_in.h                       /root/src/headers-more-nginx-module/src/ngx_http_headers_more_headers_out.h                      /root/src/headers-more-nginx-module/src/ngx_http_headers_more_headers_in.h                       /root/src/headers-more-nginx-module/src/ngx_http_headers_more_util.h                                                /root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_module.h                              /root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_variables.h                           /root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_string.h                              /root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_shm.h                                 /root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_node.h                                /root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_filter.h                              /root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_control.h                             /root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_limit.h                               /root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_display.h                             /root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_display_json.h                        /root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_display_prometheus.h                  /root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_set.h                                 /root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_dump.h                                /root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_module_html.h                          $(HTTP_DEPS)
 
 
 build:	binary modules manpage
@@ -273,6 +273,19 @@ objs/nginx:	objs/src/core/nginx.o \
 	objs/addon/src/ngx_http_headers_more_headers_out.o \
 	objs/addon/src/ngx_http_headers_more_headers_in.o \
 	objs/addon/src/ngx_http_headers_more_util.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_module.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_variables.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_string.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_shm.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_node.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_filter.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_control.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_limit.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_display.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_display_json.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_display_prometheus.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_set.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_dump.o \
 	objs/ngx_modules.o
 
 	$(LINK) -o objs/nginx \
@@ -436,6 +449,19 @@ objs/nginx:	objs/src/core/nginx.o \
 	objs/addon/src/ngx_http_headers_more_headers_out.o \
 	objs/addon/src/ngx_http_headers_more_headers_in.o \
 	objs/addon/src/ngx_http_headers_more_util.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_module.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_variables.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_string.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_shm.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_node.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_filter.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_control.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_limit.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_display.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_display_json.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_display_prometheus.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_set.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_dump.o \
 	objs/ngx_modules.o \
 	-ldl -lpthread -lcrypt -lpcre -lssl -lcrypto -ldl -lpthread -lz -lxml2 -lxslt -lexslt \
 	-Wl,-E
@@ -1569,6 +1595,97 @@ objs/addon/src/ngx_http_headers_more_util.o:	$(ADDON_DEPS) \
 	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
 		-o objs/addon/src/ngx_http_headers_more_util.o \
 		/root/src/headers-more-nginx-module/src/ngx_http_headers_more_util.c
+
+
+objs/addon/src/ngx_http_vhost_traffic_status_module.o:	$(ADDON_DEPS) \
+	/root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_module.c
+	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+		-o objs/addon/src/ngx_http_vhost_traffic_status_module.o \
+		/root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_module.c
+
+
+objs/addon/src/ngx_http_vhost_traffic_status_variables.o:	$(ADDON_DEPS) \
+	/root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_variables.c
+	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+		-o objs/addon/src/ngx_http_vhost_traffic_status_variables.o \
+		/root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_variables.c
+
+
+objs/addon/src/ngx_http_vhost_traffic_status_string.o:	$(ADDON_DEPS) \
+	/root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_string.c
+	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+		-o objs/addon/src/ngx_http_vhost_traffic_status_string.o \
+		/root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_string.c
+
+
+objs/addon/src/ngx_http_vhost_traffic_status_shm.o:	$(ADDON_DEPS) \
+	/root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_shm.c
+	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+		-o objs/addon/src/ngx_http_vhost_traffic_status_shm.o \
+		/root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_shm.c
+
+
+objs/addon/src/ngx_http_vhost_traffic_status_node.o:	$(ADDON_DEPS) \
+	/root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_node.c
+	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+		-o objs/addon/src/ngx_http_vhost_traffic_status_node.o \
+		/root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_node.c
+
+
+objs/addon/src/ngx_http_vhost_traffic_status_filter.o:	$(ADDON_DEPS) \
+	/root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_filter.c
+	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+		-o objs/addon/src/ngx_http_vhost_traffic_status_filter.o \
+		/root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_filter.c
+
+
+objs/addon/src/ngx_http_vhost_traffic_status_control.o:	$(ADDON_DEPS) \
+	/root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_control.c
+	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+		-o objs/addon/src/ngx_http_vhost_traffic_status_control.o \
+		/root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_control.c
+
+
+objs/addon/src/ngx_http_vhost_traffic_status_limit.o:	$(ADDON_DEPS) \
+	/root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_limit.c
+	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+		-o objs/addon/src/ngx_http_vhost_traffic_status_limit.o \
+		/root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_limit.c
+
+
+objs/addon/src/ngx_http_vhost_traffic_status_display.o:	$(ADDON_DEPS) \
+	/root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_display.c
+	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+		-o objs/addon/src/ngx_http_vhost_traffic_status_display.o \
+		/root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_display.c
+
+
+objs/addon/src/ngx_http_vhost_traffic_status_display_json.o:	$(ADDON_DEPS) \
+	/root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_display_json.c
+	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+		-o objs/addon/src/ngx_http_vhost_traffic_status_display_json.o \
+		/root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_display_json.c
+
+
+objs/addon/src/ngx_http_vhost_traffic_status_display_prometheus.o:	$(ADDON_DEPS) \
+	/root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_display_prometheus.c
+	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+		-o objs/addon/src/ngx_http_vhost_traffic_status_display_prometheus.o \
+		/root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_display_prometheus.c
+
+
+objs/addon/src/ngx_http_vhost_traffic_status_set.o:	$(ADDON_DEPS) \
+	/root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_set.c
+	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+		-o objs/addon/src/ngx_http_vhost_traffic_status_set.o \
+		/root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_set.c
+
+
+objs/addon/src/ngx_http_vhost_traffic_status_dump.o:	$(ADDON_DEPS) \
+	/root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_dump.c
+	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+		-o objs/addon/src/ngx_http_vhost_traffic_status_dump.o \
+		/root/src/nginx-module-vts/src/ngx_http_vhost_traffic_status_dump.c
 
 
 manpage:	objs/nginx.8
