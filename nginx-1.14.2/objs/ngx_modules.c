@@ -7,6 +7,26 @@
 extern ngx_module_t  ngx_core_module;
 extern ngx_module_t  ngx_errlog_module;
 extern ngx_module_t  ngx_conf_module;
+extern ngx_module_t  ngx_rtmp_module;
+extern ngx_module_t  ngx_rtmp_core_module;
+extern ngx_module_t  ngx_rtmp_cmd_module;
+extern ngx_module_t  ngx_rtmp_codec_module;
+extern ngx_module_t  ngx_rtmp_access_module;
+extern ngx_module_t  ngx_rtmp_record_module;
+extern ngx_module_t  ngx_rtmp_live_module;
+extern ngx_module_t  ngx_rtmp_play_module;
+extern ngx_module_t  ngx_rtmp_flv_module;
+extern ngx_module_t  ngx_rtmp_mp4_module;
+extern ngx_module_t  ngx_rtmp_netcall_module;
+extern ngx_module_t  ngx_rtmp_relay_module;
+extern ngx_module_t  ngx_rtmp_exec_module;
+extern ngx_module_t  ngx_rtmp_auto_push_module;
+extern ngx_module_t  ngx_rtmp_auto_push_index_module;
+extern ngx_module_t  ngx_rtmp_notify_module;
+extern ngx_module_t  ngx_rtmp_log_module;
+extern ngx_module_t  ngx_rtmp_limit_module;
+extern ngx_module_t  ngx_rtmp_hls_module;
+extern ngx_module_t  ngx_rtmp_dash_module;
 extern ngx_module_t  ngx_openssl_module;
 extern ngx_module_t  ngx_regex_module;
 extern ngx_module_t  ngx_events_module;
@@ -45,6 +65,8 @@ extern ngx_module_t  ngx_http_upstream_least_conn_module;
 extern ngx_module_t  ngx_http_upstream_keepalive_module;
 extern ngx_module_t  ngx_http_upstream_zone_module;
 extern ngx_module_t  ngx_http_dav_ext_module;
+extern ngx_module_t  ngx_rtmp_stat_module;
+extern ngx_module_t  ngx_rtmp_control_module;
 extern ngx_module_t  ngx_http_write_filter_module;
 extern ngx_module_t  ngx_http_header_filter_module;
 extern ngx_module_t  ngx_http_chunked_filter_module;
@@ -63,6 +85,26 @@ ngx_module_t *ngx_modules[] = {
     &ngx_core_module,
     &ngx_errlog_module,
     &ngx_conf_module,
+    &ngx_rtmp_module,
+    &ngx_rtmp_core_module,
+    &ngx_rtmp_cmd_module,
+    &ngx_rtmp_codec_module,
+    &ngx_rtmp_access_module,
+    &ngx_rtmp_record_module,
+    &ngx_rtmp_live_module,
+    &ngx_rtmp_play_module,
+    &ngx_rtmp_flv_module,
+    &ngx_rtmp_mp4_module,
+    &ngx_rtmp_netcall_module,
+    &ngx_rtmp_relay_module,
+    &ngx_rtmp_exec_module,
+    &ngx_rtmp_auto_push_module,
+    &ngx_rtmp_auto_push_index_module,
+    &ngx_rtmp_notify_module,
+    &ngx_rtmp_log_module,
+    &ngx_rtmp_limit_module,
+    &ngx_rtmp_hls_module,
+    &ngx_rtmp_dash_module,
     &ngx_openssl_module,
     &ngx_regex_module,
     &ngx_events_module,
@@ -101,6 +143,8 @@ ngx_module_t *ngx_modules[] = {
     &ngx_http_upstream_keepalive_module,
     &ngx_http_upstream_zone_module,
     &ngx_http_dav_ext_module,
+    &ngx_rtmp_stat_module,
+    &ngx_rtmp_control_module,
     &ngx_http_write_filter_module,
     &ngx_http_header_filter_module,
     &ngx_http_chunked_filter_module,
@@ -121,6 +165,26 @@ char *ngx_module_names[] = {
     "ngx_core_module",
     "ngx_errlog_module",
     "ngx_conf_module",
+    "ngx_rtmp_module",
+    "ngx_rtmp_core_module",
+    "ngx_rtmp_cmd_module",
+    "ngx_rtmp_codec_module",
+    "ngx_rtmp_access_module",
+    "ngx_rtmp_record_module",
+    "ngx_rtmp_live_module",
+    "ngx_rtmp_play_module",
+    "ngx_rtmp_flv_module",
+    "ngx_rtmp_mp4_module",
+    "ngx_rtmp_netcall_module",
+    "ngx_rtmp_relay_module",
+    "ngx_rtmp_exec_module",
+    "ngx_rtmp_auto_push_module",
+    "ngx_rtmp_auto_push_index_module",
+    "ngx_rtmp_notify_module",
+    "ngx_rtmp_log_module",
+    "ngx_rtmp_limit_module",
+    "ngx_rtmp_hls_module",
+    "ngx_rtmp_dash_module",
     "ngx_openssl_module",
     "ngx_regex_module",
     "ngx_events_module",
@@ -159,6 +223,8 @@ char *ngx_module_names[] = {
     "ngx_http_upstream_keepalive_module",
     "ngx_http_upstream_zone_module",
     "ngx_http_dav_ext_module",
+    "ngx_rtmp_stat_module",
+    "ngx_rtmp_control_module",
     "ngx_http_write_filter_module",
     "ngx_http_header_filter_module",
     "ngx_http_chunked_filter_module",
