@@ -1,1 +1,0 @@
-#define NGINX_VOD_VERSION "1.24-8-g83c135d"
