@@ -204,7 +204,7 @@ cc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
 ----------------------------------------
 checking for crypt()
 
-/tmp/ccrpKnMc.o: In function `main':
+/tmp/cctHC9es.o: In function `main':
 autotest.c:(.text+0xf): undefined reference to `crypt'
 collect2: error: ld returned 1 exit status
 ----------
@@ -315,7 +315,7 @@ checking for statvfs()
 ----------------------------------------
 checking for dlopen()
 
-/tmp/ccBCNriL.o: In function `main':
+/tmp/ccYYT6oQ.o: In function `main':
 autotest.c:(.text+0xf): undefined reference to `dlopen'
 autotest.c:(.text+0x1e): undefined reference to `dlsym'
 collect2: error: ld returned 1 exit status
@@ -651,7 +651,7 @@ checking for AF_INET6
 ----------------------------------------
 checking for setproctitle()
 
-/tmp/ccwDclhq.o: In function `main':
+/tmp/ccWWrbqZ.o: In function `main':
 autotest.c:(.text+0xf): undefined reference to `setproctitle'
 collect2: error: ld returned 1 exit status
 ----------
@@ -684,7 +684,7 @@ checking for pwritev()
 ----------------------------------------
 checking for sys_nerr
 
-/tmp/cc2jWnkO.o: In function `main':
+/tmp/cce4V2Yg.o: In function `main':
 autotest.c:(.text+0x6): warning: `sys_nerr' is deprecated; use `strerror' or `strerror_r' instead
 135
 ----------------------------------------
@@ -718,7 +718,7 @@ checking for System V shared memory
 ----------------------------------------
 checking for POSIX semaphores
 
-/tmp/cc230jRp.o: In function `main':
+/tmp/cc4vU4EP.o: In function `main':
 autotest.c:(.text+0x29): undefined reference to `sem_init'
 autotest.c:(.text+0x41): undefined reference to `sem_destroy'
 collect2: error: ld returned 1 exit status
@@ -821,8 +821,7 @@ checking for clock_gettime()
 ----------------------------------------
 checking for libavcodec
 
-/tmp/cczyDxmq.o: In function `main':
-autotest.c:(.text+0x14): undefined reference to `avcodec_send_packet'
+/usr/bin/ld: cannot find /usr/include/libavcodec: File format not recognized
 collect2: error: ld returned 1 exit status
 ----------
 
@@ -836,7 +835,7 @@ int main(void) {
 }
 
 ----------
-cc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -lavcodec
+cc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c /usr/include/libavcodec
 ----------
 
 ----------------------------------------
@@ -846,6 +845,24 @@ checking for libswscale
 ----------------------------------------
 checking for libavfilter
 
+/usr/bin/ld: cannot find /usr/include/libavfilter/: File format not recognized
+collect2: error: ld returned 1 exit status
+----------
+
+#include <sys/types.h>
+#include <unistd.h>
+#include <libavfilter/avfilter.h>
+                  #include <libavfilter/buffersrc.h>
+                  #include <libavfilter/buffersink.h>
+
+int main(void) {
+    avfilter_register_all();
+    return 0;
+}
+
+----------
+cc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c /usr/include/libavfilter/
+----------
 
 ----------------------------------------
 checking for libxml2

@@ -2366,7 +2366,7 @@ objs/ngx_http_vod_module.so:	objs/addon/dash/edash_packager.o \
 	objs/addon/vod/write_buffer.o \
 	objs/addon/vod/write_buffer_queue.o \
 	objs/ngx_http_vod_module_modules.o \
-	-lz -lcrypto -ldl -lpthread -lswscale -lavfilter -lavutil -lxml2 \
+	-lz -lcrypto -ldl -lpthread -lswscale -lxml2 \
 	-shared
 
 

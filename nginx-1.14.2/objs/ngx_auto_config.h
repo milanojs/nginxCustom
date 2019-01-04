@@ -473,11 +473,6 @@
 #endif
 
 
-#ifndef NGX_HAVE_LIB_AV_FILTER
-#define NGX_HAVE_LIB_AV_FILTER  1
-#endif
-
-
 #ifndef NGX_HAVE_LIBXML2
 #define NGX_HAVE_LIBXML2  1
 #endif
