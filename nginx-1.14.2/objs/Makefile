@@ -11,10 +11,10 @@ ALL_INCS = -I src/core \
 	-I src/os/unix \
 	-I ../nginx-rtmp-module-1.2.1 \
 	-I /usr/include/libxml2 \
+	-I /usr/include/libxml2 \
 	-I objs \
 	-I src/http \
 	-I src/http/modules \
-	-I /usr/include/libxml2 \
 	-I src/mail \
 	-I src/stream
 
@@ -89,6 +89,7 @@ CORE_INCS = -I src/core \
 	-I src/os/unix \
 	-I ../nginx-rtmp-module-1.2.1 \
 	-I /usr/include/libxml2 \
+	-I /usr/include/libxml2 \
 	-I objs
 
 
@@ -106,8 +107,7 @@ HTTP_DEPS = src/http/ngx_http.h \
 
 
 HTTP_INCS = -I src/http \
-	-I src/http/modules \
-	-I /usr/include/libxml2
+	-I src/http/modules
 
 
 MAIL_DEPS = src/mail/ngx_mail.h \
@@ -305,142 +305,6 @@ objs/nginx:	objs/src/core/nginx.o \
 	objs/src/stream/ngx_stream_upstream_hash_module.o \
 	objs/src/stream/ngx_stream_upstream_least_conn_module.o \
 	objs/src/stream/ngx_stream_upstream_zone_module.o \
-	objs/addon/nginx-dav-ext-module-3.0.0/ngx_http_dav_ext_module.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_init.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_handshake.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_handler.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_amf.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_send.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_shared.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_eval.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_receive.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_core_module.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_cmd_module.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_codec_module.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_access_module.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_record_module.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_live_module.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_play_module.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_flv_module.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_mp4_module.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_netcall_module.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_relay_module.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_bandwidth.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_exec_module.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_auto_push_module.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_notify_module.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_log_module.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_limit_module.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_bitop.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_proxy_protocol.o \
-	objs/addon/hls/ngx_rtmp_hls_module.o \
-	objs/addon/dash/ngx_rtmp_dash_module.o \
-	objs/addon/hls/ngx_rtmp_mpegts.o \
-	objs/addon/dash/ngx_rtmp_mp4.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_stat_module.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_control_module.o \
-	objs/addon/src/ngx_http_headers_more_filter_module.o \
-	objs/addon/src/ngx_http_headers_more_headers_out.o \
-	objs/addon/src/ngx_http_headers_more_headers_in.o \
-	objs/addon/src/ngx_http_headers_more_util.o \
-	objs/addon/src/ngx_http_vhost_traffic_status_module.o \
-	objs/addon/src/ngx_http_vhost_traffic_status_variables.o \
-	objs/addon/src/ngx_http_vhost_traffic_status_string.o \
-	objs/addon/src/ngx_http_vhost_traffic_status_shm.o \
-	objs/addon/src/ngx_http_vhost_traffic_status_node.o \
-	objs/addon/src/ngx_http_vhost_traffic_status_filter.o \
-	objs/addon/src/ngx_http_vhost_traffic_status_control.o \
-	objs/addon/src/ngx_http_vhost_traffic_status_limit.o \
-	objs/addon/src/ngx_http_vhost_traffic_status_display.o \
-	objs/addon/src/ngx_http_vhost_traffic_status_display_json.o \
-	objs/addon/src/ngx_http_vhost_traffic_status_display_prometheus.o \
-	objs/addon/src/ngx_http_vhost_traffic_status_set.o \
-	objs/addon/src/ngx_http_vhost_traffic_status_dump.o \
-	objs/addon/dash/edash_packager.o \
-	objs/addon/hls/aes_cbc_encrypt.o \
-	objs/addon/hls/eac3_encrypt_filter.o \
-	objs/addon/hls/frame_encrypt_filter.o \
-	objs/addon/hls/sample_aes_avc_filter.o \
-	objs/addon/mp4/mp4_aes_ctr.o \
-	objs/addon/mp4/mp4_cbcs_encrypt.o \
-	objs/addon/mp4/mp4_cenc_decrypt.o \
-	objs/addon/mp4/mp4_cenc_encrypt.o \
-	objs/addon/mp4/mp4_cenc_passthrough.o \
-	objs/addon/mss/mss_playready.o \
-	objs/addon/subtitle/dfxp_format.o \
-	objs/addon/nginx-vod-module-1.24/ngx_async_open_file_cache.o \
-	objs/addon/nginx-vod-module-1.24/ngx_buffer_cache.o \
-	objs/addon/nginx-vod-module-1.24/ngx_child_http_request.o \
-	objs/addon/nginx-vod-module-1.24/ngx_file_reader.o \
-	objs/addon/nginx-vod-module-1.24/ngx_http_vod_conf.o \
-	objs/addon/nginx-vod-module-1.24/ngx_http_vod_dash.o \
-	objs/addon/nginx-vod-module-1.24/ngx_http_vod_hds.o \
-	objs/addon/nginx-vod-module-1.24/ngx_http_vod_hls.o \
-	objs/addon/nginx-vod-module-1.24/ngx_http_vod_module.o \
-	objs/addon/nginx-vod-module-1.24/ngx_http_vod_mss.o \
-	objs/addon/nginx-vod-module-1.24/ngx_http_vod_request_parse.o \
-	objs/addon/nginx-vod-module-1.24/ngx_http_vod_status.o \
-	objs/addon/nginx-vod-module-1.24/ngx_http_vod_submodule.o \
-	objs/addon/nginx-vod-module-1.24/ngx_http_vod_utils.o \
-	objs/addon/nginx-vod-module-1.24/ngx_perf_counters.o \
-	objs/addon/vod/avc_parser.o \
-	objs/addon/vod/avc_hevc_parser.o \
-	objs/addon/vod/buffer_pool.o \
-	objs/addon/vod/codec_config.o \
-	objs/addon/vod/common.o \
-	objs/addon/dash/dash_packager.o \
-	objs/addon/vod/dynamic_buffer.o \
-	objs/addon/filters/audio_filter.o \
-	objs/addon/filters/concat_clip.o \
-	objs/addon/filters/dynamic_clip.o \
-	objs/addon/filters/filter.o \
-	objs/addon/filters/gain_filter.o \
-	objs/addon/filters/mix_filter.o \
-	objs/addon/filters/rate_filter.o \
-	objs/addon/hds/hds_amf0_encoder.o \
-	objs/addon/hds/hds_fragment.o \
-	objs/addon/hds/hds_manifest.o \
-	objs/addon/vod/hevc_parser.o \
-	objs/addon/hls/adts_encoder_filter.o \
-	objs/addon/hls/buffer_filter.o \
-	objs/addon/hls/frame_joiner_filter.o \
-	objs/addon/hls/hls_muxer.o \
-	objs/addon/hls/id3_encoder_filter.o \
-	objs/addon/hls/m3u8_builder.o \
-	objs/addon/hls/mp4_to_annexb_filter.o \
-	objs/addon/hls/mpegts_encoder_filter.o \
-	objs/addon/input/silence_generator.o \
-	objs/addon/input/frames_source_cache.o \
-	objs/addon/input/frames_source_memory.o \
-	objs/addon/input/read_cache.o \
-	objs/addon/vod/json_parser.o \
-	objs/addon/vod/language_code.o \
-	objs/addon/vod/manifest_utils.o \
-	objs/addon/vod/media_format.o \
-	objs/addon/vod/media_set_parser.o \
-	objs/addon/mkv/ebml.o \
-	objs/addon/mkv/mkv_builder.o \
-	objs/addon/mkv/mkv_defs.o \
-	objs/addon/mkv/mkv_format.o \
-	objs/addon/mp4/mp4_clipper.o \
-	objs/addon/mp4/mp4_format.o \
-	objs/addon/mp4/mp4_fragment.o \
-	objs/addon/mp4/mp4_init_segment.o \
-	objs/addon/mp4/mp4_muxer.o \
-	objs/addon/mp4/mp4_parser.o \
-	objs/addon/mp4/mp4_parser_base.o \
-	objs/addon/mss/mss_packager.o \
-	objs/addon/subtitle/cap_format.o \
-	objs/addon/subtitle/subtitle_format.o \
-	objs/addon/subtitle/ttml_builder.o \
-	objs/addon/subtitle/webvtt_builder.o \
-	objs/addon/subtitle/webvtt_format.o \
-	objs/addon/vod/parse_utils.o \
-	objs/addon/vod/segmenter.o \
-	objs/addon/vod/udrm.o \
-	objs/addon/vod/write_buffer.o \
-	objs/addon/vod/write_buffer_queue.o \
 	objs/ngx_modules.o
 
 	$(LINK) -o objs/nginx \
@@ -611,144 +475,8 @@ objs/nginx:	objs/src/core/nginx.o \
 	objs/src/stream/ngx_stream_upstream_hash_module.o \
 	objs/src/stream/ngx_stream_upstream_least_conn_module.o \
 	objs/src/stream/ngx_stream_upstream_zone_module.o \
-	objs/addon/nginx-dav-ext-module-3.0.0/ngx_http_dav_ext_module.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_init.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_handshake.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_handler.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_amf.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_send.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_shared.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_eval.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_receive.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_core_module.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_cmd_module.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_codec_module.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_access_module.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_record_module.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_live_module.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_play_module.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_flv_module.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_mp4_module.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_netcall_module.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_relay_module.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_bandwidth.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_exec_module.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_auto_push_module.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_notify_module.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_log_module.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_limit_module.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_bitop.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_proxy_protocol.o \
-	objs/addon/hls/ngx_rtmp_hls_module.o \
-	objs/addon/dash/ngx_rtmp_dash_module.o \
-	objs/addon/hls/ngx_rtmp_mpegts.o \
-	objs/addon/dash/ngx_rtmp_mp4.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_stat_module.o \
-	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_control_module.o \
-	objs/addon/src/ngx_http_headers_more_filter_module.o \
-	objs/addon/src/ngx_http_headers_more_headers_out.o \
-	objs/addon/src/ngx_http_headers_more_headers_in.o \
-	objs/addon/src/ngx_http_headers_more_util.o \
-	objs/addon/src/ngx_http_vhost_traffic_status_module.o \
-	objs/addon/src/ngx_http_vhost_traffic_status_variables.o \
-	objs/addon/src/ngx_http_vhost_traffic_status_string.o \
-	objs/addon/src/ngx_http_vhost_traffic_status_shm.o \
-	objs/addon/src/ngx_http_vhost_traffic_status_node.o \
-	objs/addon/src/ngx_http_vhost_traffic_status_filter.o \
-	objs/addon/src/ngx_http_vhost_traffic_status_control.o \
-	objs/addon/src/ngx_http_vhost_traffic_status_limit.o \
-	objs/addon/src/ngx_http_vhost_traffic_status_display.o \
-	objs/addon/src/ngx_http_vhost_traffic_status_display_json.o \
-	objs/addon/src/ngx_http_vhost_traffic_status_display_prometheus.o \
-	objs/addon/src/ngx_http_vhost_traffic_status_set.o \
-	objs/addon/src/ngx_http_vhost_traffic_status_dump.o \
-	objs/addon/dash/edash_packager.o \
-	objs/addon/hls/aes_cbc_encrypt.o \
-	objs/addon/hls/eac3_encrypt_filter.o \
-	objs/addon/hls/frame_encrypt_filter.o \
-	objs/addon/hls/sample_aes_avc_filter.o \
-	objs/addon/mp4/mp4_aes_ctr.o \
-	objs/addon/mp4/mp4_cbcs_encrypt.o \
-	objs/addon/mp4/mp4_cenc_decrypt.o \
-	objs/addon/mp4/mp4_cenc_encrypt.o \
-	objs/addon/mp4/mp4_cenc_passthrough.o \
-	objs/addon/mss/mss_playready.o \
-	objs/addon/subtitle/dfxp_format.o \
-	objs/addon/nginx-vod-module-1.24/ngx_async_open_file_cache.o \
-	objs/addon/nginx-vod-module-1.24/ngx_buffer_cache.o \
-	objs/addon/nginx-vod-module-1.24/ngx_child_http_request.o \
-	objs/addon/nginx-vod-module-1.24/ngx_file_reader.o \
-	objs/addon/nginx-vod-module-1.24/ngx_http_vod_conf.o \
-	objs/addon/nginx-vod-module-1.24/ngx_http_vod_dash.o \
-	objs/addon/nginx-vod-module-1.24/ngx_http_vod_hds.o \
-	objs/addon/nginx-vod-module-1.24/ngx_http_vod_hls.o \
-	objs/addon/nginx-vod-module-1.24/ngx_http_vod_module.o \
-	objs/addon/nginx-vod-module-1.24/ngx_http_vod_mss.o \
-	objs/addon/nginx-vod-module-1.24/ngx_http_vod_request_parse.o \
-	objs/addon/nginx-vod-module-1.24/ngx_http_vod_status.o \
-	objs/addon/nginx-vod-module-1.24/ngx_http_vod_submodule.o \
-	objs/addon/nginx-vod-module-1.24/ngx_http_vod_utils.o \
-	objs/addon/nginx-vod-module-1.24/ngx_perf_counters.o \
-	objs/addon/vod/avc_parser.o \
-	objs/addon/vod/avc_hevc_parser.o \
-	objs/addon/vod/buffer_pool.o \
-	objs/addon/vod/codec_config.o \
-	objs/addon/vod/common.o \
-	objs/addon/dash/dash_packager.o \
-	objs/addon/vod/dynamic_buffer.o \
-	objs/addon/filters/audio_filter.o \
-	objs/addon/filters/concat_clip.o \
-	objs/addon/filters/dynamic_clip.o \
-	objs/addon/filters/filter.o \
-	objs/addon/filters/gain_filter.o \
-	objs/addon/filters/mix_filter.o \
-	objs/addon/filters/rate_filter.o \
-	objs/addon/hds/hds_amf0_encoder.o \
-	objs/addon/hds/hds_fragment.o \
-	objs/addon/hds/hds_manifest.o \
-	objs/addon/vod/hevc_parser.o \
-	objs/addon/hls/adts_encoder_filter.o \
-	objs/addon/hls/buffer_filter.o \
-	objs/addon/hls/frame_joiner_filter.o \
-	objs/addon/hls/hls_muxer.o \
-	objs/addon/hls/id3_encoder_filter.o \
-	objs/addon/hls/m3u8_builder.o \
-	objs/addon/hls/mp4_to_annexb_filter.o \
-	objs/addon/hls/mpegts_encoder_filter.o \
-	objs/addon/input/silence_generator.o \
-	objs/addon/input/frames_source_cache.o \
-	objs/addon/input/frames_source_memory.o \
-	objs/addon/input/read_cache.o \
-	objs/addon/vod/json_parser.o \
-	objs/addon/vod/language_code.o \
-	objs/addon/vod/manifest_utils.o \
-	objs/addon/vod/media_format.o \
-	objs/addon/vod/media_set_parser.o \
-	objs/addon/mkv/ebml.o \
-	objs/addon/mkv/mkv_builder.o \
-	objs/addon/mkv/mkv_defs.o \
-	objs/addon/mkv/mkv_format.o \
-	objs/addon/mp4/mp4_clipper.o \
-	objs/addon/mp4/mp4_format.o \
-	objs/addon/mp4/mp4_fragment.o \
-	objs/addon/mp4/mp4_init_segment.o \
-	objs/addon/mp4/mp4_muxer.o \
-	objs/addon/mp4/mp4_parser.o \
-	objs/addon/mp4/mp4_parser_base.o \
-	objs/addon/mss/mss_packager.o \
-	objs/addon/subtitle/cap_format.o \
-	objs/addon/subtitle/subtitle_format.o \
-	objs/addon/subtitle/ttml_builder.o \
-	objs/addon/subtitle/webvtt_builder.o \
-	objs/addon/subtitle/webvtt_format.o \
-	objs/addon/vod/parse_utils.o \
-	objs/addon/vod/segmenter.o \
-	objs/addon/vod/udrm.o \
-	objs/addon/vod/write_buffer.o \
-	objs/addon/vod/write_buffer_queue.o \
 	objs/ngx_modules.o \
-	-ldl -lpthread -lcrypt -lz -lcrypto -ldl -lpthread -lswscale -lavfilter -lavutil -lxml2 -lpcre -lssl -lcrypto -ldl -lpthread -lz -lxml2 -lxslt -lexslt -lGeoIP \
+	-ldl -lpthread -lcrypt -lpcre -lssl -lcrypto -ldl -lpthread -lz -lGeoIP \
 	-Wl,-E
 	
 
@@ -1931,954 +1659,1308 @@ objs/src/stream/ngx_stream_upstream_zone_module.o:	$(CORE_DEPS) $(STREAM_DEPS) \
 		src/stream/ngx_stream_upstream_zone_module.c
 
 
+modules:	objs/ngx_http_dav_ext_module.so
+
+objs/ngx_http_dav_ext_module.so:	objs/addon/nginx-dav-ext-module-3.0.0/ngx_http_dav_ext_module.o \
+	objs/ngx_http_dav_ext_module_modules.o
+
+	$(LINK) -o objs/ngx_http_dav_ext_module.so \
+	objs/addon/nginx-dav-ext-module-3.0.0/ngx_http_dav_ext_module.o \
+	objs/ngx_http_dav_ext_module_modules.o \
+	-lxml2 -lxslt -lexslt \
+	-shared
+
+
+objs/ngx_http_dav_ext_module_modules.o:	$(CORE_DEPS) \
+	objs/ngx_http_dav_ext_module_modules.c
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
+		-o objs/ngx_http_dav_ext_module_modules.o \
+		objs/ngx_http_dav_ext_module_modules.c
+
+
 objs/addon/nginx-dav-ext-module-3.0.0/ngx_http_dav_ext_module.o:	$(ADDON_DEPS) \
 	../nginx-dav-ext-module-3.0.0/ngx_http_dav_ext_module.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-dav-ext-module-3.0.0/ngx_http_dav_ext_module.o \
 		../nginx-dav-ext-module-3.0.0/ngx_http_dav_ext_module.c
 
 
+modules:	objs/ngx_rtmp_module.so
+
+objs/ngx_rtmp_module.so:	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_init.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_handshake.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_handler.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_amf.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_send.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_shared.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_eval.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_receive.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_core_module.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_cmd_module.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_codec_module.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_access_module.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_record_module.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_live_module.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_play_module.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_flv_module.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_mp4_module.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_netcall_module.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_relay_module.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_bandwidth.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_exec_module.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_auto_push_module.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_notify_module.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_log_module.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_limit_module.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_bitop.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_proxy_protocol.o \
+	objs/addon/hls/ngx_rtmp_hls_module.o \
+	objs/addon/dash/ngx_rtmp_dash_module.o \
+	objs/addon/hls/ngx_rtmp_mpegts.o \
+	objs/addon/dash/ngx_rtmp_mp4.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_stat_module.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_control_module.o \
+	objs/ngx_rtmp_module_modules.o
+
+	$(LINK) -o objs/ngx_rtmp_module.so \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_init.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_handshake.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_handler.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_amf.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_send.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_shared.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_eval.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_receive.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_core_module.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_cmd_module.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_codec_module.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_access_module.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_record_module.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_live_module.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_play_module.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_flv_module.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_mp4_module.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_netcall_module.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_relay_module.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_bandwidth.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_exec_module.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_auto_push_module.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_notify_module.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_log_module.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_limit_module.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_bitop.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_proxy_protocol.o \
+	objs/addon/hls/ngx_rtmp_hls_module.o \
+	objs/addon/dash/ngx_rtmp_dash_module.o \
+	objs/addon/hls/ngx_rtmp_mpegts.o \
+	objs/addon/dash/ngx_rtmp_mp4.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_stat_module.o \
+	objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_control_module.o \
+	objs/ngx_rtmp_module_modules.o \
+	-shared
+
+
+objs/ngx_rtmp_module_modules.o:	$(CORE_DEPS) \
+	objs/ngx_rtmp_module_modules.c
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
+		-o objs/ngx_rtmp_module_modules.o \
+		objs/ngx_rtmp_module_modules.c
+
+
 objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp.o:	$(ADDON_DEPS) \
 	../nginx-rtmp-module-1.2.1/ngx_rtmp.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp.o \
 		../nginx-rtmp-module-1.2.1/ngx_rtmp.c
 
 
 objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_init.o:	$(ADDON_DEPS) \
 	../nginx-rtmp-module-1.2.1/ngx_rtmp_init.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_init.o \
 		../nginx-rtmp-module-1.2.1/ngx_rtmp_init.c
 
 
 objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_handshake.o:	$(ADDON_DEPS) \
 	../nginx-rtmp-module-1.2.1/ngx_rtmp_handshake.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_handshake.o \
 		../nginx-rtmp-module-1.2.1/ngx_rtmp_handshake.c
 
 
 objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_handler.o:	$(ADDON_DEPS) \
 	../nginx-rtmp-module-1.2.1/ngx_rtmp_handler.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_handler.o \
 		../nginx-rtmp-module-1.2.1/ngx_rtmp_handler.c
 
 
 objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_amf.o:	$(ADDON_DEPS) \
 	../nginx-rtmp-module-1.2.1/ngx_rtmp_amf.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_amf.o \
 		../nginx-rtmp-module-1.2.1/ngx_rtmp_amf.c
 
 
 objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_send.o:	$(ADDON_DEPS) \
 	../nginx-rtmp-module-1.2.1/ngx_rtmp_send.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_send.o \
 		../nginx-rtmp-module-1.2.1/ngx_rtmp_send.c
 
 
 objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_shared.o:	$(ADDON_DEPS) \
 	../nginx-rtmp-module-1.2.1/ngx_rtmp_shared.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_shared.o \
 		../nginx-rtmp-module-1.2.1/ngx_rtmp_shared.c
 
 
 objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_eval.o:	$(ADDON_DEPS) \
 	../nginx-rtmp-module-1.2.1/ngx_rtmp_eval.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_eval.o \
 		../nginx-rtmp-module-1.2.1/ngx_rtmp_eval.c
 
 
 objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_receive.o:	$(ADDON_DEPS) \
 	../nginx-rtmp-module-1.2.1/ngx_rtmp_receive.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_receive.o \
 		../nginx-rtmp-module-1.2.1/ngx_rtmp_receive.c
 
 
 objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_core_module.o:	$(ADDON_DEPS) \
 	../nginx-rtmp-module-1.2.1/ngx_rtmp_core_module.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_core_module.o \
 		../nginx-rtmp-module-1.2.1/ngx_rtmp_core_module.c
 
 
 objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_cmd_module.o:	$(ADDON_DEPS) \
 	../nginx-rtmp-module-1.2.1/ngx_rtmp_cmd_module.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_cmd_module.o \
 		../nginx-rtmp-module-1.2.1/ngx_rtmp_cmd_module.c
 
 
 objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_codec_module.o:	$(ADDON_DEPS) \
 	../nginx-rtmp-module-1.2.1/ngx_rtmp_codec_module.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_codec_module.o \
 		../nginx-rtmp-module-1.2.1/ngx_rtmp_codec_module.c
 
 
 objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_access_module.o:	$(ADDON_DEPS) \
 	../nginx-rtmp-module-1.2.1/ngx_rtmp_access_module.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_access_module.o \
 		../nginx-rtmp-module-1.2.1/ngx_rtmp_access_module.c
 
 
 objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_record_module.o:	$(ADDON_DEPS) \
 	../nginx-rtmp-module-1.2.1/ngx_rtmp_record_module.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_record_module.o \
 		../nginx-rtmp-module-1.2.1/ngx_rtmp_record_module.c
 
 
 objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_live_module.o:	$(ADDON_DEPS) \
 	../nginx-rtmp-module-1.2.1/ngx_rtmp_live_module.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_live_module.o \
 		../nginx-rtmp-module-1.2.1/ngx_rtmp_live_module.c
 
 
 objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_play_module.o:	$(ADDON_DEPS) \
 	../nginx-rtmp-module-1.2.1/ngx_rtmp_play_module.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_play_module.o \
 		../nginx-rtmp-module-1.2.1/ngx_rtmp_play_module.c
 
 
 objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_flv_module.o:	$(ADDON_DEPS) \
 	../nginx-rtmp-module-1.2.1/ngx_rtmp_flv_module.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_flv_module.o \
 		../nginx-rtmp-module-1.2.1/ngx_rtmp_flv_module.c
 
 
 objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_mp4_module.o:	$(ADDON_DEPS) \
 	../nginx-rtmp-module-1.2.1/ngx_rtmp_mp4_module.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_mp4_module.o \
 		../nginx-rtmp-module-1.2.1/ngx_rtmp_mp4_module.c
 
 
 objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_netcall_module.o:	$(ADDON_DEPS) \
 	../nginx-rtmp-module-1.2.1/ngx_rtmp_netcall_module.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_netcall_module.o \
 		../nginx-rtmp-module-1.2.1/ngx_rtmp_netcall_module.c
 
 
 objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_relay_module.o:	$(ADDON_DEPS) \
 	../nginx-rtmp-module-1.2.1/ngx_rtmp_relay_module.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_relay_module.o \
 		../nginx-rtmp-module-1.2.1/ngx_rtmp_relay_module.c
 
 
 objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_bandwidth.o:	$(ADDON_DEPS) \
 	../nginx-rtmp-module-1.2.1/ngx_rtmp_bandwidth.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_bandwidth.o \
 		../nginx-rtmp-module-1.2.1/ngx_rtmp_bandwidth.c
 
 
 objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_exec_module.o:	$(ADDON_DEPS) \
 	../nginx-rtmp-module-1.2.1/ngx_rtmp_exec_module.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_exec_module.o \
 		../nginx-rtmp-module-1.2.1/ngx_rtmp_exec_module.c
 
 
 objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_auto_push_module.o:	$(ADDON_DEPS) \
 	../nginx-rtmp-module-1.2.1/ngx_rtmp_auto_push_module.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_auto_push_module.o \
 		../nginx-rtmp-module-1.2.1/ngx_rtmp_auto_push_module.c
 
 
 objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_notify_module.o:	$(ADDON_DEPS) \
 	../nginx-rtmp-module-1.2.1/ngx_rtmp_notify_module.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_notify_module.o \
 		../nginx-rtmp-module-1.2.1/ngx_rtmp_notify_module.c
 
 
 objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_log_module.o:	$(ADDON_DEPS) \
 	../nginx-rtmp-module-1.2.1/ngx_rtmp_log_module.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_log_module.o \
 		../nginx-rtmp-module-1.2.1/ngx_rtmp_log_module.c
 
 
 objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_limit_module.o:	$(ADDON_DEPS) \
 	../nginx-rtmp-module-1.2.1/ngx_rtmp_limit_module.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_limit_module.o \
 		../nginx-rtmp-module-1.2.1/ngx_rtmp_limit_module.c
 
 
 objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_bitop.o:	$(ADDON_DEPS) \
 	../nginx-rtmp-module-1.2.1/ngx_rtmp_bitop.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_bitop.o \
 		../nginx-rtmp-module-1.2.1/ngx_rtmp_bitop.c
 
 
 objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_proxy_protocol.o:	$(ADDON_DEPS) \
 	../nginx-rtmp-module-1.2.1/ngx_rtmp_proxy_protocol.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_proxy_protocol.o \
 		../nginx-rtmp-module-1.2.1/ngx_rtmp_proxy_protocol.c
 
 
 objs/addon/hls/ngx_rtmp_hls_module.o:	$(ADDON_DEPS) \
 	../nginx-rtmp-module-1.2.1/hls/ngx_rtmp_hls_module.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/hls/ngx_rtmp_hls_module.o \
 		../nginx-rtmp-module-1.2.1/hls/ngx_rtmp_hls_module.c
 
 
 objs/addon/dash/ngx_rtmp_dash_module.o:	$(ADDON_DEPS) \
 	../nginx-rtmp-module-1.2.1/dash/ngx_rtmp_dash_module.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/dash/ngx_rtmp_dash_module.o \
 		../nginx-rtmp-module-1.2.1/dash/ngx_rtmp_dash_module.c
 
 
 objs/addon/hls/ngx_rtmp_mpegts.o:	$(ADDON_DEPS) \
 	../nginx-rtmp-module-1.2.1/hls/ngx_rtmp_mpegts.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/hls/ngx_rtmp_mpegts.o \
 		../nginx-rtmp-module-1.2.1/hls/ngx_rtmp_mpegts.c
 
 
 objs/addon/dash/ngx_rtmp_mp4.o:	$(ADDON_DEPS) \
 	../nginx-rtmp-module-1.2.1/dash/ngx_rtmp_mp4.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/dash/ngx_rtmp_mp4.o \
 		../nginx-rtmp-module-1.2.1/dash/ngx_rtmp_mp4.c
 
 
 objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_stat_module.o:	$(ADDON_DEPS) \
 	../nginx-rtmp-module-1.2.1/ngx_rtmp_stat_module.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_stat_module.o \
 		../nginx-rtmp-module-1.2.1/ngx_rtmp_stat_module.c
 
 
 objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_control_module.o:	$(ADDON_DEPS) \
 	../nginx-rtmp-module-1.2.1/ngx_rtmp_control_module.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-rtmp-module-1.2.1/ngx_rtmp_control_module.o \
 		../nginx-rtmp-module-1.2.1/ngx_rtmp_control_module.c
 
 
+modules:	objs/ngx_http_headers_more_filter_module.so
+
+objs/ngx_http_headers_more_filter_module.so:	objs/addon/src/ngx_http_headers_more_filter_module.o \
+	objs/addon/src/ngx_http_headers_more_headers_out.o \
+	objs/addon/src/ngx_http_headers_more_headers_in.o \
+	objs/addon/src/ngx_http_headers_more_util.o \
+	objs/ngx_http_headers_more_filter_module_modules.o
+
+	$(LINK) -o objs/ngx_http_headers_more_filter_module.so \
+	objs/addon/src/ngx_http_headers_more_filter_module.o \
+	objs/addon/src/ngx_http_headers_more_headers_out.o \
+	objs/addon/src/ngx_http_headers_more_headers_in.o \
+	objs/addon/src/ngx_http_headers_more_util.o \
+	objs/ngx_http_headers_more_filter_module_modules.o \
+	-shared
+
+
+objs/ngx_http_headers_more_filter_module_modules.o:	$(CORE_DEPS) \
+	objs/ngx_http_headers_more_filter_module_modules.c
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
+		-o objs/ngx_http_headers_more_filter_module_modules.o \
+		objs/ngx_http_headers_more_filter_module_modules.c
+
+
 objs/addon/src/ngx_http_headers_more_filter_module.o:	$(ADDON_DEPS) \
 	../headers-more-nginx-module-0.33/src/ngx_http_headers_more_filter_module.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/src/ngx_http_headers_more_filter_module.o \
 		../headers-more-nginx-module-0.33/src/ngx_http_headers_more_filter_module.c
 
 
 objs/addon/src/ngx_http_headers_more_headers_out.o:	$(ADDON_DEPS) \
 	../headers-more-nginx-module-0.33/src/ngx_http_headers_more_headers_out.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/src/ngx_http_headers_more_headers_out.o \
 		../headers-more-nginx-module-0.33/src/ngx_http_headers_more_headers_out.c
 
 
 objs/addon/src/ngx_http_headers_more_headers_in.o:	$(ADDON_DEPS) \
 	../headers-more-nginx-module-0.33/src/ngx_http_headers_more_headers_in.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/src/ngx_http_headers_more_headers_in.o \
 		../headers-more-nginx-module-0.33/src/ngx_http_headers_more_headers_in.c
 
 
 objs/addon/src/ngx_http_headers_more_util.o:	$(ADDON_DEPS) \
 	../headers-more-nginx-module-0.33/src/ngx_http_headers_more_util.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/src/ngx_http_headers_more_util.o \
 		../headers-more-nginx-module-0.33/src/ngx_http_headers_more_util.c
 
 
+modules:	objs/ngx_http_vhost_traffic_status_module.so
+
+objs/ngx_http_vhost_traffic_status_module.so:	objs/addon/src/ngx_http_vhost_traffic_status_module.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_variables.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_string.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_shm.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_node.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_filter.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_control.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_limit.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_display.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_display_json.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_display_prometheus.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_set.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_dump.o \
+	objs/ngx_http_vhost_traffic_status_module_modules.o
+
+	$(LINK) -o objs/ngx_http_vhost_traffic_status_module.so \
+	objs/addon/src/ngx_http_vhost_traffic_status_module.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_variables.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_string.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_shm.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_node.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_filter.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_control.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_limit.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_display.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_display_json.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_display_prometheus.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_set.o \
+	objs/addon/src/ngx_http_vhost_traffic_status_dump.o \
+	objs/ngx_http_vhost_traffic_status_module_modules.o \
+	-shared
+
+
+objs/ngx_http_vhost_traffic_status_module_modules.o:	$(CORE_DEPS) \
+	objs/ngx_http_vhost_traffic_status_module_modules.c
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
+		-o objs/ngx_http_vhost_traffic_status_module_modules.o \
+		objs/ngx_http_vhost_traffic_status_module_modules.c
+
+
 objs/addon/src/ngx_http_vhost_traffic_status_module.o:	$(ADDON_DEPS) \
 	../nginx-module-vts-0.1.18/src/ngx_http_vhost_traffic_status_module.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/src/ngx_http_vhost_traffic_status_module.o \
 		../nginx-module-vts-0.1.18/src/ngx_http_vhost_traffic_status_module.c
 
 
 objs/addon/src/ngx_http_vhost_traffic_status_variables.o:	$(ADDON_DEPS) \
 	../nginx-module-vts-0.1.18/src/ngx_http_vhost_traffic_status_variables.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/src/ngx_http_vhost_traffic_status_variables.o \
 		../nginx-module-vts-0.1.18/src/ngx_http_vhost_traffic_status_variables.c
 
 
 objs/addon/src/ngx_http_vhost_traffic_status_string.o:	$(ADDON_DEPS) \
 	../nginx-module-vts-0.1.18/src/ngx_http_vhost_traffic_status_string.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/src/ngx_http_vhost_traffic_status_string.o \
 		../nginx-module-vts-0.1.18/src/ngx_http_vhost_traffic_status_string.c
 
 
 objs/addon/src/ngx_http_vhost_traffic_status_shm.o:	$(ADDON_DEPS) \
 	../nginx-module-vts-0.1.18/src/ngx_http_vhost_traffic_status_shm.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/src/ngx_http_vhost_traffic_status_shm.o \
 		../nginx-module-vts-0.1.18/src/ngx_http_vhost_traffic_status_shm.c
 
 
 objs/addon/src/ngx_http_vhost_traffic_status_node.o:	$(ADDON_DEPS) \
 	../nginx-module-vts-0.1.18/src/ngx_http_vhost_traffic_status_node.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/src/ngx_http_vhost_traffic_status_node.o \
 		../nginx-module-vts-0.1.18/src/ngx_http_vhost_traffic_status_node.c
 
 
 objs/addon/src/ngx_http_vhost_traffic_status_filter.o:	$(ADDON_DEPS) \
 	../nginx-module-vts-0.1.18/src/ngx_http_vhost_traffic_status_filter.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/src/ngx_http_vhost_traffic_status_filter.o \
 		../nginx-module-vts-0.1.18/src/ngx_http_vhost_traffic_status_filter.c
 
 
 objs/addon/src/ngx_http_vhost_traffic_status_control.o:	$(ADDON_DEPS) \
 	../nginx-module-vts-0.1.18/src/ngx_http_vhost_traffic_status_control.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/src/ngx_http_vhost_traffic_status_control.o \
 		../nginx-module-vts-0.1.18/src/ngx_http_vhost_traffic_status_control.c
 
 
 objs/addon/src/ngx_http_vhost_traffic_status_limit.o:	$(ADDON_DEPS) \
 	../nginx-module-vts-0.1.18/src/ngx_http_vhost_traffic_status_limit.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/src/ngx_http_vhost_traffic_status_limit.o \
 		../nginx-module-vts-0.1.18/src/ngx_http_vhost_traffic_status_limit.c
 
 
 objs/addon/src/ngx_http_vhost_traffic_status_display.o:	$(ADDON_DEPS) \
 	../nginx-module-vts-0.1.18/src/ngx_http_vhost_traffic_status_display.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/src/ngx_http_vhost_traffic_status_display.o \
 		../nginx-module-vts-0.1.18/src/ngx_http_vhost_traffic_status_display.c
 
 
 objs/addon/src/ngx_http_vhost_traffic_status_display_json.o:	$(ADDON_DEPS) \
 	../nginx-module-vts-0.1.18/src/ngx_http_vhost_traffic_status_display_json.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/src/ngx_http_vhost_traffic_status_display_json.o \
 		../nginx-module-vts-0.1.18/src/ngx_http_vhost_traffic_status_display_json.c
 
 
 objs/addon/src/ngx_http_vhost_traffic_status_display_prometheus.o:	$(ADDON_DEPS) \
 	../nginx-module-vts-0.1.18/src/ngx_http_vhost_traffic_status_display_prometheus.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/src/ngx_http_vhost_traffic_status_display_prometheus.o \
 		../nginx-module-vts-0.1.18/src/ngx_http_vhost_traffic_status_display_prometheus.c
 
 
 objs/addon/src/ngx_http_vhost_traffic_status_set.o:	$(ADDON_DEPS) \
 	../nginx-module-vts-0.1.18/src/ngx_http_vhost_traffic_status_set.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/src/ngx_http_vhost_traffic_status_set.o \
 		../nginx-module-vts-0.1.18/src/ngx_http_vhost_traffic_status_set.c
 
 
 objs/addon/src/ngx_http_vhost_traffic_status_dump.o:	$(ADDON_DEPS) \
 	../nginx-module-vts-0.1.18/src/ngx_http_vhost_traffic_status_dump.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/src/ngx_http_vhost_traffic_status_dump.o \
 		../nginx-module-vts-0.1.18/src/ngx_http_vhost_traffic_status_dump.c
 
 
+modules:	objs/ngx_http_vod_module.so
+
+objs/ngx_http_vod_module.so:	objs/addon/dash/edash_packager.o \
+	objs/addon/hls/aes_cbc_encrypt.o \
+	objs/addon/hls/eac3_encrypt_filter.o \
+	objs/addon/hls/frame_encrypt_filter.o \
+	objs/addon/hls/sample_aes_avc_filter.o \
+	objs/addon/mp4/mp4_aes_ctr.o \
+	objs/addon/mp4/mp4_cbcs_encrypt.o \
+	objs/addon/mp4/mp4_cenc_decrypt.o \
+	objs/addon/mp4/mp4_cenc_encrypt.o \
+	objs/addon/mp4/mp4_cenc_passthrough.o \
+	objs/addon/mss/mss_playready.o \
+	objs/addon/subtitle/dfxp_format.o \
+	objs/addon/nginx-vod-module-1.24/ngx_async_open_file_cache.o \
+	objs/addon/nginx-vod-module-1.24/ngx_buffer_cache.o \
+	objs/addon/nginx-vod-module-1.24/ngx_child_http_request.o \
+	objs/addon/nginx-vod-module-1.24/ngx_file_reader.o \
+	objs/addon/nginx-vod-module-1.24/ngx_http_vod_conf.o \
+	objs/addon/nginx-vod-module-1.24/ngx_http_vod_dash.o \
+	objs/addon/nginx-vod-module-1.24/ngx_http_vod_hds.o \
+	objs/addon/nginx-vod-module-1.24/ngx_http_vod_hls.o \
+	objs/addon/nginx-vod-module-1.24/ngx_http_vod_module.o \
+	objs/addon/nginx-vod-module-1.24/ngx_http_vod_mss.o \
+	objs/addon/nginx-vod-module-1.24/ngx_http_vod_request_parse.o \
+	objs/addon/nginx-vod-module-1.24/ngx_http_vod_status.o \
+	objs/addon/nginx-vod-module-1.24/ngx_http_vod_submodule.o \
+	objs/addon/nginx-vod-module-1.24/ngx_http_vod_utils.o \
+	objs/addon/nginx-vod-module-1.24/ngx_perf_counters.o \
+	objs/addon/vod/avc_parser.o \
+	objs/addon/vod/avc_hevc_parser.o \
+	objs/addon/vod/buffer_pool.o \
+	objs/addon/vod/codec_config.o \
+	objs/addon/vod/common.o \
+	objs/addon/dash/dash_packager.o \
+	objs/addon/vod/dynamic_buffer.o \
+	objs/addon/filters/audio_filter.o \
+	objs/addon/filters/concat_clip.o \
+	objs/addon/filters/dynamic_clip.o \
+	objs/addon/filters/filter.o \
+	objs/addon/filters/gain_filter.o \
+	objs/addon/filters/mix_filter.o \
+	objs/addon/filters/rate_filter.o \
+	objs/addon/hds/hds_amf0_encoder.o \
+	objs/addon/hds/hds_fragment.o \
+	objs/addon/hds/hds_manifest.o \
+	objs/addon/vod/hevc_parser.o \
+	objs/addon/hls/adts_encoder_filter.o \
+	objs/addon/hls/buffer_filter.o \
+	objs/addon/hls/frame_joiner_filter.o \
+	objs/addon/hls/hls_muxer.o \
+	objs/addon/hls/id3_encoder_filter.o \
+	objs/addon/hls/m3u8_builder.o \
+	objs/addon/hls/mp4_to_annexb_filter.o \
+	objs/addon/hls/mpegts_encoder_filter.o \
+	objs/addon/input/silence_generator.o \
+	objs/addon/input/frames_source_cache.o \
+	objs/addon/input/frames_source_memory.o \
+	objs/addon/input/read_cache.o \
+	objs/addon/vod/json_parser.o \
+	objs/addon/vod/language_code.o \
+	objs/addon/vod/manifest_utils.o \
+	objs/addon/vod/media_format.o \
+	objs/addon/vod/media_set_parser.o \
+	objs/addon/mkv/ebml.o \
+	objs/addon/mkv/mkv_builder.o \
+	objs/addon/mkv/mkv_defs.o \
+	objs/addon/mkv/mkv_format.o \
+	objs/addon/mp4/mp4_clipper.o \
+	objs/addon/mp4/mp4_format.o \
+	objs/addon/mp4/mp4_fragment.o \
+	objs/addon/mp4/mp4_init_segment.o \
+	objs/addon/mp4/mp4_muxer.o \
+	objs/addon/mp4/mp4_parser.o \
+	objs/addon/mp4/mp4_parser_base.o \
+	objs/addon/mss/mss_packager.o \
+	objs/addon/subtitle/cap_format.o \
+	objs/addon/subtitle/subtitle_format.o \
+	objs/addon/subtitle/ttml_builder.o \
+	objs/addon/subtitle/webvtt_builder.o \
+	objs/addon/subtitle/webvtt_format.o \
+	objs/addon/vod/parse_utils.o \
+	objs/addon/vod/segmenter.o \
+	objs/addon/vod/udrm.o \
+	objs/addon/vod/write_buffer.o \
+	objs/addon/vod/write_buffer_queue.o \
+	objs/ngx_http_vod_module_modules.o
+
+	$(LINK) -o objs/ngx_http_vod_module.so \
+	objs/addon/dash/edash_packager.o \
+	objs/addon/hls/aes_cbc_encrypt.o \
+	objs/addon/hls/eac3_encrypt_filter.o \
+	objs/addon/hls/frame_encrypt_filter.o \
+	objs/addon/hls/sample_aes_avc_filter.o \
+	objs/addon/mp4/mp4_aes_ctr.o \
+	objs/addon/mp4/mp4_cbcs_encrypt.o \
+	objs/addon/mp4/mp4_cenc_decrypt.o \
+	objs/addon/mp4/mp4_cenc_encrypt.o \
+	objs/addon/mp4/mp4_cenc_passthrough.o \
+	objs/addon/mss/mss_playready.o \
+	objs/addon/subtitle/dfxp_format.o \
+	objs/addon/nginx-vod-module-1.24/ngx_async_open_file_cache.o \
+	objs/addon/nginx-vod-module-1.24/ngx_buffer_cache.o \
+	objs/addon/nginx-vod-module-1.24/ngx_child_http_request.o \
+	objs/addon/nginx-vod-module-1.24/ngx_file_reader.o \
+	objs/addon/nginx-vod-module-1.24/ngx_http_vod_conf.o \
+	objs/addon/nginx-vod-module-1.24/ngx_http_vod_dash.o \
+	objs/addon/nginx-vod-module-1.24/ngx_http_vod_hds.o \
+	objs/addon/nginx-vod-module-1.24/ngx_http_vod_hls.o \
+	objs/addon/nginx-vod-module-1.24/ngx_http_vod_module.o \
+	objs/addon/nginx-vod-module-1.24/ngx_http_vod_mss.o \
+	objs/addon/nginx-vod-module-1.24/ngx_http_vod_request_parse.o \
+	objs/addon/nginx-vod-module-1.24/ngx_http_vod_status.o \
+	objs/addon/nginx-vod-module-1.24/ngx_http_vod_submodule.o \
+	objs/addon/nginx-vod-module-1.24/ngx_http_vod_utils.o \
+	objs/addon/nginx-vod-module-1.24/ngx_perf_counters.o \
+	objs/addon/vod/avc_parser.o \
+	objs/addon/vod/avc_hevc_parser.o \
+	objs/addon/vod/buffer_pool.o \
+	objs/addon/vod/codec_config.o \
+	objs/addon/vod/common.o \
+	objs/addon/dash/dash_packager.o \
+	objs/addon/vod/dynamic_buffer.o \
+	objs/addon/filters/audio_filter.o \
+	objs/addon/filters/concat_clip.o \
+	objs/addon/filters/dynamic_clip.o \
+	objs/addon/filters/filter.o \
+	objs/addon/filters/gain_filter.o \
+	objs/addon/filters/mix_filter.o \
+	objs/addon/filters/rate_filter.o \
+	objs/addon/hds/hds_amf0_encoder.o \
+	objs/addon/hds/hds_fragment.o \
+	objs/addon/hds/hds_manifest.o \
+	objs/addon/vod/hevc_parser.o \
+	objs/addon/hls/adts_encoder_filter.o \
+	objs/addon/hls/buffer_filter.o \
+	objs/addon/hls/frame_joiner_filter.o \
+	objs/addon/hls/hls_muxer.o \
+	objs/addon/hls/id3_encoder_filter.o \
+	objs/addon/hls/m3u8_builder.o \
+	objs/addon/hls/mp4_to_annexb_filter.o \
+	objs/addon/hls/mpegts_encoder_filter.o \
+	objs/addon/input/silence_generator.o \
+	objs/addon/input/frames_source_cache.o \
+	objs/addon/input/frames_source_memory.o \
+	objs/addon/input/read_cache.o \
+	objs/addon/vod/json_parser.o \
+	objs/addon/vod/language_code.o \
+	objs/addon/vod/manifest_utils.o \
+	objs/addon/vod/media_format.o \
+	objs/addon/vod/media_set_parser.o \
+	objs/addon/mkv/ebml.o \
+	objs/addon/mkv/mkv_builder.o \
+	objs/addon/mkv/mkv_defs.o \
+	objs/addon/mkv/mkv_format.o \
+	objs/addon/mp4/mp4_clipper.o \
+	objs/addon/mp4/mp4_format.o \
+	objs/addon/mp4/mp4_fragment.o \
+	objs/addon/mp4/mp4_init_segment.o \
+	objs/addon/mp4/mp4_muxer.o \
+	objs/addon/mp4/mp4_parser.o \
+	objs/addon/mp4/mp4_parser_base.o \
+	objs/addon/mss/mss_packager.o \
+	objs/addon/subtitle/cap_format.o \
+	objs/addon/subtitle/subtitle_format.o \
+	objs/addon/subtitle/ttml_builder.o \
+	objs/addon/subtitle/webvtt_builder.o \
+	objs/addon/subtitle/webvtt_format.o \
+	objs/addon/vod/parse_utils.o \
+	objs/addon/vod/segmenter.o \
+	objs/addon/vod/udrm.o \
+	objs/addon/vod/write_buffer.o \
+	objs/addon/vod/write_buffer_queue.o \
+	objs/ngx_http_vod_module_modules.o \
+	-lz -lcrypto -ldl -lpthread -lswscale -lavfilter -lavutil -lxml2 \
+	-shared
+
+
+objs/ngx_http_vod_module_modules.o:	$(CORE_DEPS) \
+	objs/ngx_http_vod_module_modules.c
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
+		-o objs/ngx_http_vod_module_modules.o \
+		objs/ngx_http_vod_module_modules.c
+
+
 objs/addon/dash/edash_packager.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/dash/edash_packager.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/dash/edash_packager.o \
 		../nginx-vod-module-1.24/vod/dash/edash_packager.c
 
 
 objs/addon/hls/aes_cbc_encrypt.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/hls/aes_cbc_encrypt.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/hls/aes_cbc_encrypt.o \
 		../nginx-vod-module-1.24/vod/hls/aes_cbc_encrypt.c
 
 
 objs/addon/hls/eac3_encrypt_filter.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/hls/eac3_encrypt_filter.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/hls/eac3_encrypt_filter.o \
 		../nginx-vod-module-1.24/vod/hls/eac3_encrypt_filter.c
 
 
 objs/addon/hls/frame_encrypt_filter.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/hls/frame_encrypt_filter.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/hls/frame_encrypt_filter.o \
 		../nginx-vod-module-1.24/vod/hls/frame_encrypt_filter.c
 
 
 objs/addon/hls/sample_aes_avc_filter.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/hls/sample_aes_avc_filter.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/hls/sample_aes_avc_filter.o \
 		../nginx-vod-module-1.24/vod/hls/sample_aes_avc_filter.c
 
 
 objs/addon/mp4/mp4_aes_ctr.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/mp4/mp4_aes_ctr.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/mp4/mp4_aes_ctr.o \
 		../nginx-vod-module-1.24/vod/mp4/mp4_aes_ctr.c
 
 
 objs/addon/mp4/mp4_cbcs_encrypt.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/mp4/mp4_cbcs_encrypt.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/mp4/mp4_cbcs_encrypt.o \
 		../nginx-vod-module-1.24/vod/mp4/mp4_cbcs_encrypt.c
 
 
 objs/addon/mp4/mp4_cenc_decrypt.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/mp4/mp4_cenc_decrypt.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/mp4/mp4_cenc_decrypt.o \
 		../nginx-vod-module-1.24/vod/mp4/mp4_cenc_decrypt.c
 
 
 objs/addon/mp4/mp4_cenc_encrypt.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/mp4/mp4_cenc_encrypt.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/mp4/mp4_cenc_encrypt.o \
 		../nginx-vod-module-1.24/vod/mp4/mp4_cenc_encrypt.c
 
 
 objs/addon/mp4/mp4_cenc_passthrough.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/mp4/mp4_cenc_passthrough.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/mp4/mp4_cenc_passthrough.o \
 		../nginx-vod-module-1.24/vod/mp4/mp4_cenc_passthrough.c
 
 
 objs/addon/mss/mss_playready.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/mss/mss_playready.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/mss/mss_playready.o \
 		../nginx-vod-module-1.24/vod/mss/mss_playready.c
 
 
 objs/addon/subtitle/dfxp_format.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/subtitle/dfxp_format.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/subtitle/dfxp_format.o \
 		../nginx-vod-module-1.24/vod/subtitle/dfxp_format.c
 
 
 objs/addon/nginx-vod-module-1.24/ngx_async_open_file_cache.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/ngx_async_open_file_cache.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-vod-module-1.24/ngx_async_open_file_cache.o \
 		../nginx-vod-module-1.24/ngx_async_open_file_cache.c
 
 
 objs/addon/nginx-vod-module-1.24/ngx_buffer_cache.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/ngx_buffer_cache.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-vod-module-1.24/ngx_buffer_cache.o \
 		../nginx-vod-module-1.24/ngx_buffer_cache.c
 
 
 objs/addon/nginx-vod-module-1.24/ngx_child_http_request.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/ngx_child_http_request.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-vod-module-1.24/ngx_child_http_request.o \
 		../nginx-vod-module-1.24/ngx_child_http_request.c
 
 
 objs/addon/nginx-vod-module-1.24/ngx_file_reader.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/ngx_file_reader.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-vod-module-1.24/ngx_file_reader.o \
 		../nginx-vod-module-1.24/ngx_file_reader.c
 
 
 objs/addon/nginx-vod-module-1.24/ngx_http_vod_conf.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/ngx_http_vod_conf.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-vod-module-1.24/ngx_http_vod_conf.o \
 		../nginx-vod-module-1.24/ngx_http_vod_conf.c
 
 
 objs/addon/nginx-vod-module-1.24/ngx_http_vod_dash.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/ngx_http_vod_dash.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-vod-module-1.24/ngx_http_vod_dash.o \
 		../nginx-vod-module-1.24/ngx_http_vod_dash.c
 
 
 objs/addon/nginx-vod-module-1.24/ngx_http_vod_hds.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/ngx_http_vod_hds.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-vod-module-1.24/ngx_http_vod_hds.o \
 		../nginx-vod-module-1.24/ngx_http_vod_hds.c
 
 
 objs/addon/nginx-vod-module-1.24/ngx_http_vod_hls.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/ngx_http_vod_hls.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-vod-module-1.24/ngx_http_vod_hls.o \
 		../nginx-vod-module-1.24/ngx_http_vod_hls.c
 
 
 objs/addon/nginx-vod-module-1.24/ngx_http_vod_module.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/ngx_http_vod_module.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-vod-module-1.24/ngx_http_vod_module.o \
 		../nginx-vod-module-1.24/ngx_http_vod_module.c
 
 
 objs/addon/nginx-vod-module-1.24/ngx_http_vod_mss.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/ngx_http_vod_mss.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-vod-module-1.24/ngx_http_vod_mss.o \
 		../nginx-vod-module-1.24/ngx_http_vod_mss.c
 
 
 objs/addon/nginx-vod-module-1.24/ngx_http_vod_request_parse.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/ngx_http_vod_request_parse.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-vod-module-1.24/ngx_http_vod_request_parse.o \
 		../nginx-vod-module-1.24/ngx_http_vod_request_parse.c
 
 
 objs/addon/nginx-vod-module-1.24/ngx_http_vod_status.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/ngx_http_vod_status.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-vod-module-1.24/ngx_http_vod_status.o \
 		../nginx-vod-module-1.24/ngx_http_vod_status.c
 
 
 objs/addon/nginx-vod-module-1.24/ngx_http_vod_submodule.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/ngx_http_vod_submodule.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-vod-module-1.24/ngx_http_vod_submodule.o \
 		../nginx-vod-module-1.24/ngx_http_vod_submodule.c
 
 
 objs/addon/nginx-vod-module-1.24/ngx_http_vod_utils.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/ngx_http_vod_utils.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-vod-module-1.24/ngx_http_vod_utils.o \
 		../nginx-vod-module-1.24/ngx_http_vod_utils.c
 
 
 objs/addon/nginx-vod-module-1.24/ngx_perf_counters.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/ngx_perf_counters.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/nginx-vod-module-1.24/ngx_perf_counters.o \
 		../nginx-vod-module-1.24/ngx_perf_counters.c
 
 
 objs/addon/vod/avc_parser.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/avc_parser.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/vod/avc_parser.o \
 		../nginx-vod-module-1.24/vod/avc_parser.c
 
 
 objs/addon/vod/avc_hevc_parser.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/avc_hevc_parser.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/vod/avc_hevc_parser.o \
 		../nginx-vod-module-1.24/vod/avc_hevc_parser.c
 
 
 objs/addon/vod/buffer_pool.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/buffer_pool.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/vod/buffer_pool.o \
 		../nginx-vod-module-1.24/vod/buffer_pool.c
 
 
 objs/addon/vod/codec_config.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/codec_config.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/vod/codec_config.o \
 		../nginx-vod-module-1.24/vod/codec_config.c
 
 
 objs/addon/vod/common.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/common.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/vod/common.o \
 		../nginx-vod-module-1.24/vod/common.c
 
 
 objs/addon/dash/dash_packager.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/dash/dash_packager.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/dash/dash_packager.o \
 		../nginx-vod-module-1.24/vod/dash/dash_packager.c
 
 
 objs/addon/vod/dynamic_buffer.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/dynamic_buffer.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/vod/dynamic_buffer.o \
 		../nginx-vod-module-1.24/vod/dynamic_buffer.c
 
 
 objs/addon/filters/audio_filter.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/filters/audio_filter.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/filters/audio_filter.o \
 		../nginx-vod-module-1.24/vod/filters/audio_filter.c
 
 
 objs/addon/filters/concat_clip.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/filters/concat_clip.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/filters/concat_clip.o \
 		../nginx-vod-module-1.24/vod/filters/concat_clip.c
 
 
 objs/addon/filters/dynamic_clip.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/filters/dynamic_clip.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/filters/dynamic_clip.o \
 		../nginx-vod-module-1.24/vod/filters/dynamic_clip.c
 
 
 objs/addon/filters/filter.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/filters/filter.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/filters/filter.o \
 		../nginx-vod-module-1.24/vod/filters/filter.c
 
 
 objs/addon/filters/gain_filter.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/filters/gain_filter.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/filters/gain_filter.o \
 		../nginx-vod-module-1.24/vod/filters/gain_filter.c
 
 
 objs/addon/filters/mix_filter.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/filters/mix_filter.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/filters/mix_filter.o \
 		../nginx-vod-module-1.24/vod/filters/mix_filter.c
 
 
 objs/addon/filters/rate_filter.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/filters/rate_filter.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/filters/rate_filter.o \
 		../nginx-vod-module-1.24/vod/filters/rate_filter.c
 
 
 objs/addon/hds/hds_amf0_encoder.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/hds/hds_amf0_encoder.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/hds/hds_amf0_encoder.o \
 		../nginx-vod-module-1.24/vod/hds/hds_amf0_encoder.c
 
 
 objs/addon/hds/hds_fragment.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/hds/hds_fragment.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/hds/hds_fragment.o \
 		../nginx-vod-module-1.24/vod/hds/hds_fragment.c
 
 
 objs/addon/hds/hds_manifest.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/hds/hds_manifest.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/hds/hds_manifest.o \
 		../nginx-vod-module-1.24/vod/hds/hds_manifest.c
 
 
 objs/addon/vod/hevc_parser.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/hevc_parser.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/vod/hevc_parser.o \
 		../nginx-vod-module-1.24/vod/hevc_parser.c
 
 
 objs/addon/hls/adts_encoder_filter.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/hls/adts_encoder_filter.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/hls/adts_encoder_filter.o \
 		../nginx-vod-module-1.24/vod/hls/adts_encoder_filter.c
 
 
 objs/addon/hls/buffer_filter.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/hls/buffer_filter.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/hls/buffer_filter.o \
 		../nginx-vod-module-1.24/vod/hls/buffer_filter.c
 
 
 objs/addon/hls/frame_joiner_filter.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/hls/frame_joiner_filter.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/hls/frame_joiner_filter.o \
 		../nginx-vod-module-1.24/vod/hls/frame_joiner_filter.c
 
 
 objs/addon/hls/hls_muxer.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/hls/hls_muxer.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/hls/hls_muxer.o \
 		../nginx-vod-module-1.24/vod/hls/hls_muxer.c
 
 
 objs/addon/hls/id3_encoder_filter.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/hls/id3_encoder_filter.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/hls/id3_encoder_filter.o \
 		../nginx-vod-module-1.24/vod/hls/id3_encoder_filter.c
 
 
 objs/addon/hls/m3u8_builder.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/hls/m3u8_builder.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/hls/m3u8_builder.o \
 		../nginx-vod-module-1.24/vod/hls/m3u8_builder.c
 
 
 objs/addon/hls/mp4_to_annexb_filter.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/hls/mp4_to_annexb_filter.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/hls/mp4_to_annexb_filter.o \
 		../nginx-vod-module-1.24/vod/hls/mp4_to_annexb_filter.c
 
 
 objs/addon/hls/mpegts_encoder_filter.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/hls/mpegts_encoder_filter.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/hls/mpegts_encoder_filter.o \
 		../nginx-vod-module-1.24/vod/hls/mpegts_encoder_filter.c
 
 
 objs/addon/input/silence_generator.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/input/silence_generator.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/input/silence_generator.o \
 		../nginx-vod-module-1.24/vod/input/silence_generator.c
 
 
 objs/addon/input/frames_source_cache.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/input/frames_source_cache.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/input/frames_source_cache.o \
 		../nginx-vod-module-1.24/vod/input/frames_source_cache.c
 
 
 objs/addon/input/frames_source_memory.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/input/frames_source_memory.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/input/frames_source_memory.o \
 		../nginx-vod-module-1.24/vod/input/frames_source_memory.c
 
 
 objs/addon/input/read_cache.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/input/read_cache.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/input/read_cache.o \
 		../nginx-vod-module-1.24/vod/input/read_cache.c
 
 
 objs/addon/vod/json_parser.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/json_parser.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/vod/json_parser.o \
 		../nginx-vod-module-1.24/vod/json_parser.c
 
 
 objs/addon/vod/language_code.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/language_code.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/vod/language_code.o \
 		../nginx-vod-module-1.24/vod/language_code.c
 
 
 objs/addon/vod/manifest_utils.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/manifest_utils.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/vod/manifest_utils.o \
 		../nginx-vod-module-1.24/vod/manifest_utils.c
 
 
 objs/addon/vod/media_format.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/media_format.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/vod/media_format.o \
 		../nginx-vod-module-1.24/vod/media_format.c
 
 
 objs/addon/vod/media_set_parser.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/media_set_parser.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/vod/media_set_parser.o \
 		../nginx-vod-module-1.24/vod/media_set_parser.c
 
 
 objs/addon/mkv/ebml.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/mkv/ebml.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/mkv/ebml.o \
 		../nginx-vod-module-1.24/vod/mkv/ebml.c
 
 
 objs/addon/mkv/mkv_builder.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/mkv/mkv_builder.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/mkv/mkv_builder.o \
 		../nginx-vod-module-1.24/vod/mkv/mkv_builder.c
 
 
 objs/addon/mkv/mkv_defs.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/mkv/mkv_defs.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/mkv/mkv_defs.o \
 		../nginx-vod-module-1.24/vod/mkv/mkv_defs.c
 
 
 objs/addon/mkv/mkv_format.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/mkv/mkv_format.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/mkv/mkv_format.o \
 		../nginx-vod-module-1.24/vod/mkv/mkv_format.c
 
 
 objs/addon/mp4/mp4_clipper.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/mp4/mp4_clipper.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/mp4/mp4_clipper.o \
 		../nginx-vod-module-1.24/vod/mp4/mp4_clipper.c
 
 
 objs/addon/mp4/mp4_format.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/mp4/mp4_format.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/mp4/mp4_format.o \
 		../nginx-vod-module-1.24/vod/mp4/mp4_format.c
 
 
 objs/addon/mp4/mp4_fragment.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/mp4/mp4_fragment.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/mp4/mp4_fragment.o \
 		../nginx-vod-module-1.24/vod/mp4/mp4_fragment.c
 
 
 objs/addon/mp4/mp4_init_segment.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/mp4/mp4_init_segment.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/mp4/mp4_init_segment.o \
 		../nginx-vod-module-1.24/vod/mp4/mp4_init_segment.c
 
 
 objs/addon/mp4/mp4_muxer.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/mp4/mp4_muxer.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/mp4/mp4_muxer.o \
 		../nginx-vod-module-1.24/vod/mp4/mp4_muxer.c
 
 
 objs/addon/mp4/mp4_parser.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/mp4/mp4_parser.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/mp4/mp4_parser.o \
 		../nginx-vod-module-1.24/vod/mp4/mp4_parser.c
 
 
 objs/addon/mp4/mp4_parser_base.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/mp4/mp4_parser_base.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/mp4/mp4_parser_base.o \
 		../nginx-vod-module-1.24/vod/mp4/mp4_parser_base.c
 
 
 objs/addon/mss/mss_packager.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/mss/mss_packager.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/mss/mss_packager.o \
 		../nginx-vod-module-1.24/vod/mss/mss_packager.c
 
 
 objs/addon/subtitle/cap_format.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/subtitle/cap_format.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/subtitle/cap_format.o \
 		../nginx-vod-module-1.24/vod/subtitle/cap_format.c
 
 
 objs/addon/subtitle/subtitle_format.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/subtitle/subtitle_format.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/subtitle/subtitle_format.o \
 		../nginx-vod-module-1.24/vod/subtitle/subtitle_format.c
 
 
 objs/addon/subtitle/ttml_builder.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/subtitle/ttml_builder.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/subtitle/ttml_builder.o \
 		../nginx-vod-module-1.24/vod/subtitle/ttml_builder.c
 
 
 objs/addon/subtitle/webvtt_builder.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/subtitle/webvtt_builder.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/subtitle/webvtt_builder.o \
 		../nginx-vod-module-1.24/vod/subtitle/webvtt_builder.c
 
 
 objs/addon/subtitle/webvtt_format.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/subtitle/webvtt_format.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/subtitle/webvtt_format.o \
 		../nginx-vod-module-1.24/vod/subtitle/webvtt_format.c
 
 
 objs/addon/vod/parse_utils.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/parse_utils.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/vod/parse_utils.o \
 		../nginx-vod-module-1.24/vod/parse_utils.c
 
 
 objs/addon/vod/segmenter.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/segmenter.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/vod/segmenter.o \
 		../nginx-vod-module-1.24/vod/segmenter.c
 
 
 objs/addon/vod/udrm.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/udrm.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/vod/udrm.o \
 		../nginx-vod-module-1.24/vod/udrm.c
 
 
 objs/addon/vod/write_buffer.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/write_buffer.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/vod/write_buffer.o \
 		../nginx-vod-module-1.24/vod/write_buffer.c
 
 
 objs/addon/vod/write_buffer_queue.o:	$(ADDON_DEPS) \
 	../nginx-vod-module-1.24/vod/write_buffer_queue.c
-	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
+	$(CC) -c -fPIC $(CFLAGS) $(ALL_INCS) \
 		-o objs/addon/vod/write_buffer_queue.o \
 		../nginx-vod-module-1.24/vod/write_buffer_queue.c
 
@@ -2947,3 +3029,31 @@ install:	build
 
 	test -d '$(DESTDIR)/var/log/nginx' \
 		|| mkdir -p '$(DESTDIR)/var/log/nginx'
+
+	test -d '$(DESTDIR)/usr/lib/nginx/modules' \
+		|| mkdir -p '$(DESTDIR)/usr/lib/nginx/modules'
+
+	test ! -f '$(DESTDIR)/usr/lib/nginx/modules/ngx_http_dav_ext_module.so' \
+		|| mv '$(DESTDIR)/usr/lib/nginx/modules/ngx_http_dav_ext_module.so' \
+			'$(DESTDIR)/usr/lib/nginx/modules/ngx_http_dav_ext_module.so.old'
+	cp objs/ngx_http_dav_ext_module.so '$(DESTDIR)/usr/lib/nginx/modules/ngx_http_dav_ext_module.so'
+
+	test ! -f '$(DESTDIR)/usr/lib/nginx/modules/ngx_rtmp_module.so' \
+		|| mv '$(DESTDIR)/usr/lib/nginx/modules/ngx_rtmp_module.so' \
+			'$(DESTDIR)/usr/lib/nginx/modules/ngx_rtmp_module.so.old'
+	cp objs/ngx_rtmp_module.so '$(DESTDIR)/usr/lib/nginx/modules/ngx_rtmp_module.so'
+
+	test ! -f '$(DESTDIR)/usr/lib/nginx/modules/ngx_http_headers_more_filter_module.so' \
+		|| mv '$(DESTDIR)/usr/lib/nginx/modules/ngx_http_headers_more_filter_module.so' \
+			'$(DESTDIR)/usr/lib/nginx/modules/ngx_http_headers_more_filter_module.so.old'
+	cp objs/ngx_http_headers_more_filter_module.so '$(DESTDIR)/usr/lib/nginx/modules/ngx_http_headers_more_filter_module.so'
+
+	test ! -f '$(DESTDIR)/usr/lib/nginx/modules/ngx_http_vhost_traffic_status_module.so' \
+		|| mv '$(DESTDIR)/usr/lib/nginx/modules/ngx_http_vhost_traffic_status_module.so' \
+			'$(DESTDIR)/usr/lib/nginx/modules/ngx_http_vhost_traffic_status_module.so.old'
+	cp objs/ngx_http_vhost_traffic_status_module.so '$(DESTDIR)/usr/lib/nginx/modules/ngx_http_vhost_traffic_status_module.so'
+
+	test ! -f '$(DESTDIR)/usr/lib/nginx/modules/ngx_http_vod_module.so' \
+		|| mv '$(DESTDIR)/usr/lib/nginx/modules/ngx_http_vod_module.so' \
+			'$(DESTDIR)/usr/lib/nginx/modules/ngx_http_vod_module.so.old'
+	cp objs/ngx_http_vod_module.so '$(DESTDIR)/usr/lib/nginx/modules/ngx_http_vod_module.so'
