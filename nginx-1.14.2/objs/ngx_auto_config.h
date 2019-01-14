@@ -468,8 +468,18 @@
 #endif
 
 
+#ifndef NGX_HAVE_LIB_AV_CODEC
+#define NGX_HAVE_LIB_AV_CODEC  1
+#endif
+
+
 #ifndef NGX_HAVE_LIB_SW_SCALE
 #define NGX_HAVE_LIB_SW_SCALE  1
+#endif
+
+
+#ifndef NGX_HAVE_LIB_AV_FILTER
+#define NGX_HAVE_LIB_AV_FILTER  1
 #endif
 
 

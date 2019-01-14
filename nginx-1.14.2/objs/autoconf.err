@@ -204,7 +204,7 @@ cc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
 ----------------------------------------
 checking for crypt()
 
-/tmp/ccfQnRZn.o: In function `main':
+/tmp/ccLF5D6X.o: In function `main':
 autotest.c:(.text+0xf): undefined reference to `crypt'
 collect2: error: ld returned 1 exit status
 ----------
@@ -315,7 +315,7 @@ checking for statvfs()
 ----------------------------------------
 checking for dlopen()
 
-/tmp/ccngJ1hS.o: In function `main':
+/tmp/ccCvBuBR.o: In function `main':
 autotest.c:(.text+0xf): undefined reference to `dlopen'
 autotest.c:(.text+0x1e): undefined reference to `dlsym'
 collect2: error: ld returned 1 exit status
@@ -651,7 +651,7 @@ checking for AF_INET6
 ----------------------------------------
 checking for setproctitle()
 
-/tmp/ccRJo4YV.o: In function `main':
+/tmp/cckGMC0r.o: In function `main':
 autotest.c:(.text+0xf): undefined reference to `setproctitle'
 collect2: error: ld returned 1 exit status
 ----------
@@ -684,7 +684,7 @@ checking for pwritev()
 ----------------------------------------
 checking for sys_nerr
 
-/tmp/ccTaKtIa.o: In function `main':
+/tmp/ccWLNpbQ.o: In function `main':
 autotest.c:(.text+0x6): warning: `sys_nerr' is deprecated; use `strerror' or `strerror_r' instead
 135
 ----------------------------------------
@@ -718,7 +718,7 @@ checking for System V shared memory
 ----------------------------------------
 checking for POSIX semaphores
 
-/tmp/cc2PDjkz.o: In function `main':
+/tmp/ccv04O8Q.o: In function `main':
 autotest.c:(.text+0x29): undefined reference to `sem_init'
 autotest.c:(.text+0x41): undefined reference to `sem_destroy'
 collect2: error: ld returned 1 exit status
@@ -821,22 +821,6 @@ checking for clock_gettime()
 ----------------------------------------
 checking for libavcodec
 
-/usr/bin/ld: cannot find /opt/kaltura/ffmpeg-2.1.3/include/libavcodec: File format not recognized
-collect2: error: ld returned 1 exit status
-----------
-
-#include <sys/types.h>
-#include <unistd.h>
-#include <libavcodec/avcodec.h>
-
-int main(void) {
-    avcodec_send_packet(NULL, NULL);
-    return 0;
-}
-
-----------
-cc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c /opt/kaltura/ffmpeg-2.1.3/include/libavcodec
-----------
 
 ----------------------------------------
 checking for libswscale
@@ -845,24 +829,10 @@ checking for libswscale
 ----------------------------------------
 checking for libavfilter
 
-/usr/bin/ld: cannot find /opt/kaltura/ffmpeg-2.1.3/include/libavfilter: File format not recognized
-collect2: error: ld returned 1 exit status
-----------
-
-#include <sys/types.h>
-#include <unistd.h>
-#include <libavfilter/avfilter.h>
-                  #include <libavfilter/buffersrc.h>
-                  #include <libavfilter/buffersink.h>
-
-int main(void) {
-    avfilter_register_all();
-    return 0;
-}
-
-----------
-cc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c /opt/kaltura/ffmpeg-2.1.3/include/libavfilter
-----------
+objs/autotest.c: In function 'main':
+objs/autotest.c:9:5: warning: 'avfilter_register_all' is deprecated (declared at /opt/kaltura/ffmpeg-4.0.2/include/libavfilter/avfilter.h:714) [-Wdeprecated-declarations]
+     avfilter_register_all();
+     ^
 
 ----------------------------------------
 checking for libxml2
